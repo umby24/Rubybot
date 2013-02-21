@@ -1,0 +1,1 @@
++reload -- Force a reload of all the bot's plugins, and re-creation of the commands script.

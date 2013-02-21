@@ -1,0 +1,2 @@
+time = Time.new
+sendmessage(time.strftime("%I:%M:%S %p"),network) 

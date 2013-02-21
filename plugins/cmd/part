@@ -1,0 +1,7 @@
+senda("PART #{$networks[network + "_current"]}")
+        $networks[network + "_serverchannel"].delete($networks[network + "_current"])
+        if $networks[network + "_serverchannel"].length == 0
+          $networks[network + "_serverchannel"][0] = "#minebot"
+        else
+          $networks[network + "_current"] = $networks[network + "_serverchannel"][$networks[network + "_serverchannel"].length - 1]
+        end 

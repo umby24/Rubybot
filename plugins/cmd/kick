@@ -1,0 +1,1 @@
+send_raw("KICK " + $networks[network + "_current"] + " " + $networks[network + "_args"][1] + " :" + $networks[network + "_args"][2]) 

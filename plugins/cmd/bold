@@ -1,0 +1,6 @@
+begin         
+        mmessage = $networks[network + "_message"][$networks[network + "_message"].index(" ") + 1, $networks[network + "_message"].length - ($networks[network + "_message"].index(" ") + 1)]
+        sendmessage(2.chr + mmessage,network)
+      rescue Exception => e
+        sendmessage(e.message,network)
+      end 

@@ -1,0 +1,7 @@
+      mmessage = $networks[network + "_message"][$networks[network + "_message"].index(" ") + 1, $networks[network + "_message"].length - ($networks[network + "_message"].index(" ") + 1)]
+      #Add admin.
+      afile = File.new("settings/users_" + network + ".txt","a+")
+      afile.syswrite(mmessage + "\r\n")
+      afile.close
+      load_users(network)
+      sendmessage("Admin added.",network) 

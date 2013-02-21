@@ -1,0 +1,7 @@
+if $networks[network + "_topic"][$networks[network + "_current"]] == nil
+puts $networks[network + "_current"]
+send_raw("TOPIC  #{$networks[network + "_current"]}",network)
+else
+sendmessage($networks[network + "_topic"][$networks[network + "_current"]].gsub("\r\n",""),network)
+end
+ 

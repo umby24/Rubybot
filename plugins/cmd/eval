@@ -1,0 +1,6 @@
+myeval = $networks[network + "_message"][$networks[network + "_message"].index(" ") + 1, $networks[network + "_message"].length - ($networks[network + "_message"].index(" ") + 1)]
+      begin
+        sendmessage(eval(myeval).to_s,network)
+      rescue Exception => e
+        sendmessage("Error: " + e.message,network)
+      end 

@@ -1,0 +1,8 @@
+[Synirc]
+username=Rubybot
+ident=Ruby
+realname=rubybot
+server=irc.synirc.net
+port=6667
+channel=#minebot
+ns_pass=
