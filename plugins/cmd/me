@@ -1,2 +1,0 @@
-mmessage = $networks[network + "_message"][$networks[network + "_message"].index(" ") + 1, $networks[network + "_message"].length - ($networks[network + "_message"].index(" ") + 1)]
-sendmessage(1.chr + "ACTION " + mmessage + 1.chr,network)

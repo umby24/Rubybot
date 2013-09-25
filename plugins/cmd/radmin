@@ -1,1 +1,0 @@
-send_raw("MODE " + $networks[network + "_current"] + " -ao " + $networks[network + "_args"][1],network) 

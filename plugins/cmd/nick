@@ -1,3 +1,0 @@
-mmessage = $networks[network + "_message"][$networks[network + "_message"].index(" ") + 1, $networks[network + "_message"].length - ($networks[network + "_message"].index(" ") + 1)]
-       send_raw("NICK " + mmessage,network)
-       $networks[network + "_botname"] = mmessage 

@@ -1,4 +1,0 @@
-mmessage = $networks[network + "_message"][$networks[network + "_message"].index(" ") + 1, $networks[network + "_message"].length - ($networks[network + "_message"].index(" ") + 1)]
-       $networks[network + "_serverchannel"][$networks[network + "_serverchannel"].length] = mmessage.strip
-       send_raw("JOIN " + mmessage.strip)
-       $networks[network + "_current"] = mmessage.strip 

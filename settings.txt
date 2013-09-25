@@ -1,8 +1,8 @@
-[Synirc]
-username=Rubybot
+username=Rbot
 ident=Ruby
-realname=rubybot
-server=irc.synirc.net
+realname=Ruby
+server=irc.esper.net
 port=6667
-channel=#minebot
+channel=#ChannelHere
 ns_pass=
+prefix=+

@@ -1,4 +1,0 @@
-        pie = 0
-        $networks[network + "_pia"] = 0
-        $networks[network + "_quit"] = 1
-        send_raw("QUIT :Quit command by #{$networks[network + "_host"][0,$networks[network + "_host"].index("!")]}",network) 

@@ -1,3 +1,0 @@
-mystring = ""
-        $networks[network + "_access"].each {|what| mystring = mystring + what.chop + ","}
-        sendmessage("My admins are: " + mystring,network) 

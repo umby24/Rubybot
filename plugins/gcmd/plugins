@@ -1,3 +1,0 @@
-mystring = ""
-$networks[network + "_plugins"].each {|plug| mystring += plug + ","}
-sendmessage("Currently loaded plugins: " + mystring,network)
