@@ -90,9 +90,9 @@ These are methods included by the bot, what they do, and what arguments they req
 These are the variables that are used throughout the bot, that you can use or manipulate from your plugins. You may also create your own global variables and they will persist and be readable by other plugins.
 
 The first section contains fully global variables, second section is only after a message has been received from IRC, and the third group is after a command has been triggered.
-	----------------------------------------------------------------------------------------------------------------------
-	Variable (Type)        | Use                                                                                         |
-	----------------------------------------------------------------------------------------------------------------------	
+
+	Variable (Type)        | Use                                                                                         
+
 	$access (Array)        | Holds the names of bot admins.
 	$plugins (Array)       | Holds the filenames of loaded plugins.
 	$quit (Int)            | Determines if the bot is quitting. If set to 1, the bot will exit.
@@ -113,20 +113,19 @@ The first section contains fully global variables, second section is only after 
 	$t2 (Thread)           | Thread that handles console input.
 	$t3 (Thread)           | Thread that handles auto-reconnection if no ping is received from the irc server after 8 minutes.
 	$socket (TCPSocket)    | The socket that is connected to the irc server.
-	----------------------------------------------------------------------------------------------------------------------
+
 	$raw (String)    | Contains the raw data pulled from the IRC server.
 	$host(String)    | Contains the hostname for the incoming data (All data up to the first space from $raw).
 	$dat (String)    | Contains all data after the first space from $raw.
 	$second (String) | Contains the IRC code for this message (PRIVMSG, NOTICE, TOPIC, 330, ect.)
 	$splits (Array)  | Contains $dat split by spaces, up to 10 times.
 	$message (String)| Contains the message for this string. (All data after the ':' in $dat).
-	----------------------------------------------------------------------------------------------------------------------
+
 	$cmd (String) | The command that is being called.
 	$args (Array) | A list of string that contains the chat message used to trigger the command, split by spaces. (Includes the command itself as $args[0]).
-	----------------------------------------------------------------------------------------------------------------------
-	
+
+
 ### That's it!
 
 That's all of the variables and methods available to rubybot plugins. If you need more and feel comfortable with it, feel free to dive into the core bot files and add your own!
 
-	
