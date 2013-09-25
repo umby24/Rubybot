@@ -8,6 +8,7 @@ if $okay == true
 	if $authed.include?($host[0,$host.index("!")]) == false && override == false
 		send_raw("whois " + $host[0,$host.index("!")])
 		
+		$args = $message.split(" ",30)
 		if $gcommand[$cmd] == nil
 			sendmessage("Command not found.")
 		else
