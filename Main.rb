@@ -32,6 +32,7 @@ $command = Hash.new
 $gcommand = Hash.new
 $evtmsg = Hash.new
 $evtread = Hash.new
+$help = Hash.new
 $prefix = "+"
 $id = false
 $timer = 0
@@ -62,13 +63,16 @@ $socket = TCPSocket.open($serverip,$serverport)
 send_raw("NICK #{$botname}")
 send_raw("USER " + $ident + " ruby ruby :" + $realname)
 send_raw("MODE #{$botname} +B-x")
+
 #load the loop, and then call them in their own threads.
 #there are two loops, one to accept console output
 #the other is to process incoming data from the socket.
+
 $t2 = Thread.new{systemloop()}
 $t3 = Thread.new{ping_loop()}
+
 while $quit == 0
-	load Dir.pwd + "/depends/loop.rb"
-	$t1 = Thread.new{loop_load()}
-	$t1.join()
+  load Dir.pwd + "/depends/loop.rb"
+  $t1 = Thread.new{loop_load()}
+  $t1.join()
 end

@@ -5,14 +5,19 @@ if $okay == true
 		$current = $splits[1]
 	end
 	override = false
-	if $authed.include?($host[0,$host.index("!")]) == false && override == false
-		send_raw("whois " + $host[0,$host.index("!")])
+	if $authed.include?($name) == false && override == false
+		send_raw("whois " + $name)
 		
 		$args = $message.split(" ",30)
+		
 		if $gcommand[$cmd] == nil
 			sendmessage("Command not found.")
 		else
-			send($gcommand[$cmd])
+			begin
+				send($gcommand[$cmd])
+			rescue Exception => e
+				err_log("Command Error (#{$cmd}): #{e.message}\n#{e.backtrace}")
+			end
 		end
 	else
 		$args = $message.split(" ",30)
@@ -20,7 +25,11 @@ if $okay == true
 		if $command[$cmd] == nil
 			sendmessage("Command not found.")
 		else
-			send($command[$cmd])
+			begin
+				send($command[$cmd])
+			rescue Exception => e
+				err_log("Command Error (#{$cmd}): #{e.message}\n#{e.backtrace}")
+			end
 		end
 	end
 else
@@ -29,6 +38,10 @@ else
 	if $gcommand[$cmd] == nil
 		sendmessage("Command not found.")
 	else
-		send($gcommand[$cmd])
+		begin
+			send($gcommand[$cmd])
+		rescue Exception => e
+			err_log("Command Error (#{$cmd}): #{e.message}\n#{e.backtrace}")
+		end
 	end
 end

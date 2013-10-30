@@ -4,7 +4,7 @@ This is one of my side-projects that has grown into a decent, fairly extensible 
 
 Tested verisons of Ruby are 1.9.3 +
 
-This is just a base installation, no plugins. You can find a few examples for plugins in my other github projects, and I will provide documentation on writing your own here (Eventually).
+This is just a base installation, no plugins. You can find a few examples for plugins in my other github projects, and I will provide documentation on writing your own here.
 
 ## Configuration
 
@@ -38,6 +38,7 @@ In core.rb (in the plugins directory), the Eval command is limited to a hard-cod
 	eval [string] - Makes the bot run the ruby script [string].
 	help [command] - Lists help for [command] (If available).
 	kick [name] - Kicks [name] from the channel (if possible).
+	load [file] - Loads [file] from the plugins directory, and adds it to plugins.txt.
 	me [text] - Sends [text] in a /me fasion.
 	nick [nickname] - changes the bots nickname.
 	now - Gives the system time, date, and timezone.
@@ -47,7 +48,7 @@ In core.rb (in the plugins directory), the Eval command is limited to a hard-cod
 	plugins - Lists the bot's loaded plugins.
 	quit - Quits the bot.
 	radmin [name] - Removes Channel Admin from [name].
-	reload - Reloads all plugins, settings, and admins.
+	reload [file] - Reloads all plugins, settings, and admins. If [file] is specified, only that plugin will be reloaded.
 	rem [name] - Removes [name] from bot allowed admins.
 	rop [name] - Removes Channel Op from [name].
 	rowner [name] - Removes channel Owner from [name].
@@ -55,6 +56,7 @@ In core.rb (in the plugins directory), the Eval command is limited to a hard-cod
 	say [text] - Makes the bot say [text].
 	time - Makes the bot give the current time in AM/PM format.
 	topic - Gives the topic of the current channel.
+	unload [file] -- Removes [file] from plugins.txt and unloads the plugin.
 	voice [name] - Gives voice to [name] (if possible).
 
 ## Plugin API
@@ -69,6 +71,7 @@ Other than that, there are a number of events you can register within your plugi
 	regMsg(name, method) -- Every time a chat message (PRIVMSG) is received, the bot will run [method]. [name] is just an identifier.
 	regCmd(cmd, method) -- Registers [cmd] as an admin command. When the command is run, the bot will call [method]. Command is added to command listing.
 	regGCmd(cmd, method) -- Registers [cmd] as a guest command. When the command is run, the bot will call [method]. Command is added to command listing.
+	regHelp(cmd, subcmd, [usage, description]) -- Registers help for [cmd]. If you don't have a subcommand, use nil. See my other github projects for this bot for examples.
 	regLib(library) -- Calls the bot to load [library].
 	regCon(name, method) -- once connected to an irc server fully (MOTD received), the bot will call [method]. [name] is just an identifier.
 	regRead(name, method) -- calls [method] every time data is read off the socket. [name] is an identifier.
@@ -116,6 +119,7 @@ The first section contains fully global variables, second section is only after 
 
 	$raw (String)    | Contains the raw data pulled from the IRC server.
 	$host(String)    | Contains the hostname for the incoming data (All data up to the first space from $raw).
+	$name (String)   | Contains the name of the sender of a message (If applicable)
 	$dat (String)    | Contains all data after the first space from $raw.
 	$second (String) | Contains the IRC code for this message (PRIVMSG, NOTICE, TOPIC, 330, ect.)
 	$splits (Array)  | Contains $dat split by spaces, up to 10 times.
@@ -128,4 +132,5 @@ The first section contains fully global variables, second section is only after 
 ### That's it!
 
 That's all of the variables and methods available to rubybot plugins. If you need more and feel comfortable with it, feel free to dive into the core bot files and add your own!
+If you think it will be useful to others as well, make a pull request!
 
