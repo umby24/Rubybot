@@ -1,13 +1,13 @@
 def error_clear_logs()
-	if File.exists?("logs/watchdog.txt")
-		File.delete("logs/watchdog.txt")
-	end
+    if File.exists?("logs/watchdog.txt")
+        File.delete("logs/watchdog.txt")
+    end
 
-	sendmessage("Logs cleared.")
+    sendmessage("Logs cleared.")
 end
 def error_generate_html()
-	generate_ErrorHTML()
-	sendmessage("HTML Error log generated.")
+    generate_ErrorHTML()
+    sendmessage("HTML Error log generated.")
 end
 
 regCmd("clearerrors", "error_clear_logs")

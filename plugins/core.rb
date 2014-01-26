@@ -1,7 +1,7 @@
 def command_add()
     mmessage = $message[$message.index(" ") + 1, $message.length - ($message.index(" ") + 1)]
     #Add admin.
-	$access.push(mmessage)
+    $access.push(mmessage)
     afile = File.new("settings/users.txt","w+")
     afile.syswrite($access.join("\n"))
     afile.close()
@@ -49,59 +49,59 @@ def command_gcommands()
 end
 
 def command_help()
-	if $args[1] == nil
-		send_notice($name, "No arguments provided. For a commands listing see " + $prefix + "commands.")
-		return
-	end
-	
-	found = false
-	helpmodule = nil
-	
-	$help.each do |hm|
-		if hm.command == $args[1]
-			found = true
-			helpmodule = hm
-		end
-	end
-	
-	if found == false
-		send_notice($name, "Help for " + $args[1] + " not found.")
-		return
-	end
-	
-	if $args[2] == nil
-		helpmodule.SendBaseHelp($name)
-		return
-	end
-	
-	if $args[2].downcase == "arg" # Person is looking for an argument.
-		index = $message.index($args[2]) + $args[2].length + 1
-		mmessage = $message[index, $message.length - index]
-		puts "|" + mmessage + "|"
-		helpmodule.SendArgHelp($name, mmessage) #TODO: Make this an mmessage
-	elsif $args[2] != "arg" and $args[3] == nil
-		helpmodule.SendSubHelp($name, $args[2])
-	elsif $args[3].downcase == "arg" and $args[4] != nil
-		index = $message.index($args[3]) + $args[3].length + 1
-		mmessage = $message[index, $message.length - index]
-		helpmodule.SendSubargHelp($name, $args[2], mmessage) #TODO: Make this and mmessage.
-	else
-		send_notice($name, "There was an error with your help request.")
-		send_notice($name, "Usage is " + $prefix + "help [command] [subcommand or 'arg'](optional) [argument or 'arg'](optional) [argument](optional)")
-	end
+    if $args[1] == nil
+        send_notice($name, "No arguments provided. For a commands listing see " + $prefix + "commands.")
+        return
+    end
+    
+    found = false
+    helpmodule = nil
+    
+    $help.each do |hm|
+        if hm.command == $args[1]
+            found = true
+            helpmodule = hm
+        end
+    end
+    
+    if found == false
+        send_notice($name, "Help for " + $args[1] + " not found.")
+        return
+    end
+    
+    if $args[2] == nil
+        helpmodule.SendBaseHelp($name)
+        return
+    end
+    
+    if $args[2].downcase == "arg" # Person is looking for an argument.
+        index = $message.index($args[2]) + $args[2].length + 1
+        mmessage = $message[index, $message.length - index]
+        puts "|" + mmessage + "|"
+        helpmodule.SendArgHelp($name, mmessage) #TODO: Make this an mmessage
+    elsif $args[2] != "arg" and $args[3] == nil
+        helpmodule.SendSubHelp($name, $args[2])
+    elsif $args[3].downcase == "arg" and $args[4] != nil
+        index = $message.index($args[3]) + $args[3].length + 1
+        mmessage = $message[index, $message.length - index]
+        helpmodule.SendSubargHelp($name, $args[2], mmessage) #TODO: Make this and mmessage.
+    else
+        send_notice($name, "There was an error with your help request.")
+        send_notice($name, "Usage is " + $prefix + "help [command] [subcommand or 'arg'](optional) [argument or 'arg'](optional) [argument](optional)")
+    end
 end
 
 def command_eval()
     if $name != "umby24"
-		send_raw("NOTICE " + $name + " :You are not authorized to use eval.")
-		return
-	end
+        send_raw("NOTICE " + $name + " :You are not authorized to use eval.")
+        return
+    end
     myeval = $message[$message.index(" ") + 1, $message.length - ($message.index(" ") + 1)]
     begin
         sendmessage(eval(myeval).to_s)
     rescue Exception => e
         sendmessage("Error: " + e.message)
-		puts e.backtrace
+        puts e.backtrace
     end 
 end
 def command_kick()
@@ -127,9 +127,9 @@ def command_owner()
 end
 def command_part()
     send_raw("PART #{$current}")
-	
+    
     $serverchannel.delete($current)
-	
+    
     if $serverchannel.length == 0
         $serverchannel[0] = "#minebot"
     else
@@ -137,49 +137,49 @@ def command_part()
     end 
 end
 def command_nping()
-	$pingtime = Time.now.to_f
-	$pinging = true
-	send_raw("NOTICE #{$botname} :PING")
+    $pingtime = Time.now.to_f
+    $pinging = true
+    send_raw("NOTICE #{$botname} :PING")
 end
 def command_plugins()
     mystring = $plugins.join(", ")
     sendmessage("Currently loaded plugins: " + mystring.gsub("\n",""))
 end
 def command_quit()
-	pie = 0
-	$pia = 0
-	$quit = 1
-	send_raw("QUIT :Quit command by #{$name}") 
+    pie = 0
+    $pia = 0
+    $quit = 1
+    send_raw("QUIT :Quit command by #{$name}") 
 end
 def command_radmin()
     send_raw("MODE " + $current + " -ao " + $args[1])
 end
 def command_reload()
-	if ($args[1] != nil or $args[1] != "" or $args[1] != " ") and (File.exists?("plugins/" + $args[1]) == true and File.directory?("plugins/" + $args[1]) == false)
-		sendmessage("Reloading " + $args[1] + "...")
-		load "plugins/" + $args[1]
-		sendmessage("Done.")
-		return
-	end
-	$pie = 0
-	$reloaded = 1
-	$command = Hash.new
-	$gcommand = Hash.new
-	$evtmsg = Hash.new
-	load Dir.pwd + "/depends/reqfunc.rb"
-	load_plugins()
-	load_users()
-	load_settings()
+    if ($args[1] != nil or $args[1] != "" or $args[1] != " ") and (File.exists?("plugins/" + $args[1]) == true and File.directory?("plugins/" + $args[1]) == false)
+        sendmessage("Reloading " + $args[1] + "...")
+        load "plugins/" + $args[1]
+        sendmessage("Done.")
+        return
+    end
+    $pie = 0
+    $reloaded = 1
+    $command = Hash.new
+    $gcommand = Hash.new
+    $evtmsg = Hash.new
+    load Dir.pwd + "/depends/reqfunc.rb"
+    load_plugins()
+    load_users()
+    load_settings()
 end
 def command_rem()
-	mmessage = $message[$message.index(" ") + 1, $message.length - ($message.index(" ") + 1)]
-	#remove admin.
-	$access.remove(mmessage)
-	afile = File.new("settings/users.txt","w+")
-	afile.syswrite($access.join("\n"))
-	afile.close()
-	load_users()
-	sendmessage("Admin removed.")
+    mmessage = $message[$message.index(" ") + 1, $message.length - ($message.index(" ") + 1)]
+    #remove admin.
+    $access.remove(mmessage)
+    afile = File.new("settings/users.txt","w+")
+    afile.syswrite($access.join("\n"))
+    afile.close()
+    load_users()
+    sendmessage("Admin removed.")
 end
 def command_rop()
     send_raw("MODE " + $current + " -o " + $args[1])
@@ -206,38 +206,38 @@ def command_topic()
     end
 end
 def command_load()
-	if File.exist?("plugins/#{$args[1]}") == false
-		sendmessage($name + ": Plugin not found.")
-		return
-	end
-	File.open("settings/plugins.txt", "a+") do |aFile|
-		aFile.syswrite("\n#{$args[1]}")
-	end
-	load_plugins()
-	sendmessage("Plugin loaded.")
+    if File.exist?("plugins/#{$args[1]}") == false
+        sendmessage($name + ": Plugin not found.")
+        return
+    end
+    File.open("settings/plugins.txt", "a+") do |aFile|
+        aFile.syswrite("\n#{$args[1]}")
+    end
+    load_plugins()
+    sendmessage("Plugin loaded.")
 end
 def command_unload()
-	if File.exist?("plugins/#{$args[1]}") == false
-		sendmessage($name + ": Plugin not found.")
-		return
-	end
-	if $plugins.include?($args[1]) == false
-		sendmessage($name + ": Plugin is not loaded")
-		return
-	end
-	#IO.foreach("settings/plugins.txt") {|line|
-	#	if line.gsub("\n", "") != $args[1]
-	#		newfile = newfile + line + "\n"
-	#	end
-	#}
-	#File.open("settings/plugins.txt", "w+") do |aFile|
-	#	aFile.syswrite(newfile)
-	#end
-	File.open("settings/plugins.txt", "w+") do |aFile|
-		aFile.syswrite($plugins.join("\n"))
-	end
-	load_plugins()
-	sendmessage("Plugin unloaded.")
+    if File.exist?("plugins/#{$args[1]}") == false
+        sendmessage($name + ": Plugin not found.")
+        return
+    end
+    if $plugins.include?($args[1]) == false
+        sendmessage($name + ": Plugin is not loaded")
+        return
+    end
+    #IO.foreach("settings/plugins.txt") {|line|
+    #   if line.gsub("\n", "") != $args[1]
+    #       newfile = newfile + line + "\n"
+    #   end
+    #}
+    #File.open("settings/plugins.txt", "w+") do |aFile|
+    #   aFile.syswrite(newfile)
+    #end
+    File.open("settings/plugins.txt", "w+") do |aFile|
+        aFile.syswrite($plugins.join("\n"))
+    end
+    load_plugins()
+    sendmessage("Plugin unloaded.")
 end
 def command_voice()
     send_raw("MODE " + $current + " +v " + $args[1])
