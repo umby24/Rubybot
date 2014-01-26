@@ -44,6 +44,7 @@ In core.rb (in the plugins directory), the Eval command is limited to a hard-cod
 	now - Gives the system time, date, and timezone.
 	nping - Returns the bot's current network latency.
 	op [name] - Gives [name] Channel Op (if possible).
+	owner [name] - Gives [name] channel owner (if possible).
 	part - Makes the bot part from the current channel.
 	plugins - Lists the bot's loaded plugins.
 	quit - Quits the bot.
@@ -71,19 +72,21 @@ Other than that, there are a number of events you can register within your plugi
 	regMsg(name, method) -- Every time a chat message (PRIVMSG) is received, the bot will run [method]. [name] is just an identifier.
 	regCmd(cmd, method) -- Registers [cmd] as an admin command. When the command is run, the bot will call [method]. Command is added to command listing.
 	regGCmd(cmd, method) -- Registers [cmd] as a guest command. When the command is run, the bot will call [method]. Command is added to command listing.
-	regHelp(cmd, subcmd, [usage, description]) -- Registers help for [cmd]. If you don't have a subcommand, use nil. See my other github projects for this bot for examples.
 	regLib(library) -- Calls the bot to load [library].
 	regCon(name, method) -- once connected to an irc server fully (MOTD received), the bot will call [method]. [name] is just an identifier.
 	regRead(name, method) -- calls [method] every time data is read off the socket. [name] is an identifier.
+	regJoin(name, method) -- Calls [method] whenever a user joins IRC.
 
 ### Methods
 These are methods included by the bot, what they do, and what arguments they require. They may be used by any plugin.
 
-	logtext(text, channel) -- adds [text] to the end of the log file for [channel]. If a log does not exist for that channel, one will be created.
-	err_log(message) -- Adds [message] to the end of the error.log file found in the root directory of the bot.
+	logtext(text, channel) -- adds [text] to the end of the log file for [channel]. If a log does not exist for that channel, one will be created. [Deprecated]
+	err_log(message) -- Adds [message] to the end of the error.log file found in the root directory of the bot. [Deprecated]
+	_log(type, plugin, function, message, channel=nil) -- Plugin, Function, and channel are optional. For plugin and function to be ignored, use "". Logs to the console and to file.
 	send_raw(data) -- sends the raw [data] to the server. (IRC line terminator is automatically added to [data]).
 	pm(message, user) -- sends PRIVMSG [message] to [user]. [user] can be a user or a channel.
 	sendmessage(message) -- Sends [message] to the currently active channel. ($current).
+	send_notice(user, message) -- Sends a notice to [user], with the content of [message].
 	load_settings() -- Loads the bot's settings
 	load_users() -- Loads the bot's admins.
 	load_plugins() -- Loads the bot's plugins.
@@ -116,6 +119,7 @@ The first section contains fully global variables, second section is only after 
 	$t2 (Thread)           | Thread that handles console input.
 	$t3 (Thread)           | Thread that handles auto-reconnection if no ping is received from the irc server after 8 minutes.
 	$socket (TCPSocket)    | The socket that is connected to the irc server.
+	$help (Array)          | Holds all help modules for all commands on the bot.
 
 	$raw (String)    | Contains the raw data pulled from the IRC server.
 	$host(String)    | Contains the hostname for the incoming data (All data up to the first space from $raw).

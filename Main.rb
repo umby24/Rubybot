@@ -32,7 +32,8 @@ $command = Hash.new
 $gcommand = Hash.new
 $evtmsg = Hash.new
 $evtread = Hash.new
-$help = Hash.new
+$evtjoin = Hash.new
+$help = []
 $prefix = "+"
 $id = false
 $timer = 0
@@ -41,9 +42,11 @@ $evtcon = Hash.new
 BEGIN {
   load Dir.pwd + "/depends/reqfunc.rb"
   load Dir.pwd + "/depends/events.rb"
+  load Dir.pwd + "/depends/HelpModule.rb"
+  load Dir.pwd + "/depends/Watchdog.rb"
   puts "#############################"
   puts "#        Ruby IRC bot       #"
-  puts "#        Version 4.3        #"
+  puts "#        Version 4.4        #"
   puts "#         by Umby24         #"
   puts "#############################"
 }
@@ -64,15 +67,12 @@ send_raw("NICK #{$botname}")
 send_raw("USER " + $ident + " ruby ruby :" + $realname)
 send_raw("MODE #{$botname} +B-x")
 
-#load the loop, and then call them in their own threads.
-#there are two loops, one to accept console output
-#the other is to process incoming data from the socket.
 
-$t2 = Thread.new{systemloop()}
-$t3 = Thread.new{ping_loop()}
+$t2 = Thread.new{systemloop()} # Console input thread
+$t3 = Thread.new{ping_loop()} # Auto-Reconnect thread
 
 while $quit == 0
-  load Dir.pwd + "/depends/loop.rb"
-  $t1 = Thread.new{loop_load()}
+  load Dir.pwd + "/depends/loop.rb" # Load main processing loop
+  $t1 = Thread.new{loop_load()} # Begin processing IRC packets
   $t1.join()
 end

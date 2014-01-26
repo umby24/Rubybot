@@ -1,8 +1,8 @@
-username=Rbot
+username=Rubybot
 ident=Ruby
 realname=Ruby
 server=irc.esper.net
 port=6667
-channel=#ChannelHere
+channel=#ChannelHere, #ChannelTwo, 
 ns_pass=
 prefix=+

@@ -17,6 +17,38 @@ def logtext(text, channel)
 	end
 end
 
+def _log(type, plugin, function, message, channel=nil)
+	time = Time.now()
+	mystring = time.strftime("%I:%M:%S %p") + "  [" + type.upcase + "]"
+	
+	if plugin != ""
+		mystring += "[" + plugin.upcase #:" + function.upcase + "] " + message
+		
+		if function != ""
+			mystring += ":"
+		end
+	else
+		if function != ""
+			mystring += "["
+		end
+	end
+	
+	if function != ""
+		mystring += function.upcase + "]"
+	end
+	if channel != nil
+		mystring += "[" + channel + "]"
+	end
+	
+	mystring += " " + message
+	
+	puts mystring
+	
+	if channel != nil
+		logtext(mystring, channel)
+	end
+end
+
 def err_log(message)
   afile = File.new("error.log","a")
   afile.write("\n" + message)
@@ -32,24 +64,22 @@ def pm(message,user)
 	messages.each {|b|
 		if b != nil
 			send_raw("PRIVMSG " + user + " :" + b)
-			puts "(" + user + ") <" + $botname + "> " + b
-			logtext("<#{$botname}> #{b}", user)
+			_log("Chat", "", "", "<" + $botname + "> " + b, user)
 		end
 	}
 end
 
 def sendmessage(message)
   begin
-	messages = thisSplitMessage(message)
-	messages.each {|b|
-		$socket.send("PRIVMSG " + $current + " :" + b + "\r\n", 0)
-		puts "(" + $current + ") <" + $botname + "> " + b
-		logtext("<#{$botname}> #{b}", $current)
-	}
-
+	pm(message, $current)
   rescue Exception => e
-    err_log("Failed to sendmessage. #{e.message}")
+    watchdog_Log("Failed to sendmessage." + e.message, e.backtrace)
   end
+end
+
+def send_notice(user, message)
+	send_raw("NOTICE " + user + " :" + message)
+	_log("NOTICE", "", "SendNotice", message, user)
 end
 
 def thisSplitMessage(string)
@@ -76,34 +106,7 @@ def thisSplitMessage(string)
 	end while (loopback == true)
 	return splits
 end
-def splitMessage(string)
-	puts string
-	counter = 0
-	splitting = true
-	splits = []
-	
-	if string.length > 300
-		#We must split the lines!
-		while (splitting)
-			splits[counter] = string[(counter * 300), string.length - ((counter + 1) * 300)]
-			counter += 1
-			string = string.gsub(splits[counter] - 1, "")
-			
-			if string != nil
-				if string.length < 300
-					splits[counter] = string
-					splitting = false
-				end
-			else
-				splitting = false
-			end
-		end
-	else
-		splits[0] = string
-	end
-	
-	return splits
-end
+
 def load_settings()
 	begin
 		reader = IO.readlines("settings.txt")
@@ -140,41 +143,43 @@ def load_settings()
 			end
 		}
 	rescue Exception => e
-		err_log("Error loading settings: #{e.message}")
+		watchdog_Log(e.message, e.backtrace)
+		#err_log("Error loading settings: #{e.message}")
 	end
 end
 
 def load_users()
 	begin
-	  $access = IO.readlines("settings/users.txt")
+		$access = []
+		IO.foreach("settings/users.txt") {|line|
+			$access.push(line.gsub("\n","").gsub("\r",""))
+		}
 	rescue
-	  err_log("ERROR: Users file not found.")
+		watchdog_Log("ERROR: Users file not found.", "load_users()")
 	end
-	puts "Users loaded"
+	_log("INFO", "", "Load_Users", "Users loaded")
 end
 
 def load_plugins()
 	$plugins = []
-	plugins = IO.readlines("settings/plugins.txt")
-
+	plugins = []
+	IO.foreach("settings/plugins.txt") {|line|
+		plugins.push(line.gsub("\n","").gsub("\r",""))
+	}
+	
 	plugins.each {|item|
-		#item = item.gsub("/^[a-zA-Z0-9]+$/", "")
-		if item.include?("\n")
-			item = item.gsub("\n", "")
-		end
-
 		if item[0,1] != "#" and (item != "" and item != " " and item != nil and item != "\r" and item != "\n" and item != "\r\n")
 			begin
 				load Dir.pwd + "/plugins/" + item
-				$plugins[$plugins.length] = item
+				$plugins.push(item)
 			rescue Exception => e
-				err_log("Error loading #{item}: #{e.message}")
-				err_log("BT: #{e.backtrace}")
+				watchdog_Log("Error loading #{item}: #{e.message}", e.backtrace)
 				next
 			end
 		end
 	}
-	puts "Plugins loaded."
+	
+	_log("INFO", "", "Load_Plugins", "Plugins loaded.")
 end
 
 def loop_load()
@@ -190,9 +195,7 @@ def loop_load()
     rescue Exception => e
       # This enables you to correct your mistakes infinatly until you find the issue
       # as all errors will be logged, it shouldn't be too hard to pinpoint.
-      err_log("Error Reloading loop; Attempting to use current version.")
-      err_log("Error message: #{e.message}")
-	  err_log("Trace: #{e.backtrace}")
+	  watchdog_Log("Error reloading loop: " + e.message, e.backtrace)
 	  $tol += 1
       loop_load()
     end
@@ -202,93 +205,54 @@ def loop_load()
   end
 end
 
-def regMsg(name, method)
-	$evtmsg[name] = method
-end
-
-def regCmd(cmd, method)
-	$command[cmd] = method
-end
-
-def regGCmd(cmd, method)
-	$gcommand[cmd] = method
-end
-
-def regLib(library)
-	require library
-end
-
-def regCon(name, method)
-	$evtcon[name] = method
-end
-
-def regRead(name, method)
-	$evtread[name] = method
-end
-
-def regHelp(command, subcommand, string)
-	if subcommand == nil
-		$help[command] = string
-	else
-		oldHash = $help[command]
-		if oldHash.class.to_s == "Hash"
-			oldHash[subcommand] = string
-			$help[command] = oldHash
-		else
-			$help[command] = {subcommand => string}
+def systemloop()
+	while $pia == 1
+		message = gets
+		message = message.chop()
+		
+		if message[0,3] == "/c "
+			mmessage = message[3, message.length - 3]
+			$current = mmessage
+			message = "/null\\" # Keeps the channel changing from being sent to the new channel
 		end
 		
-		
+		case message
+			when "/null\\"
+				#Do nothing :D
+			when "/join"
+				send_raw("JOIN " + $current)
+			when "/r"
+				$pie = 0
+				$reloaded = 1
+				load Dir.pwd + "/depends/reqfunc.rb"
+				load Dir.pwd + "/plugins/func.rb"
+				load Dir.pwd + "/depends/HelpModule.rb"
+				load_plugins()
+				load_users()
+				_log("Info", "", "SystemLoop", "Reloaded")
+			else
+				sendmessage(message)
+		end
 	end
 end
 
-def systemloop()
-		while $pia == 1
-				message = gets
-				message = message.chop()
-				
-				if message[0,3] == "/c "
-						mmessage = message[3, message.length - 3]
-						$current = mmessage
-						message = "/null\\" # Keeps the channel changing from being sent to the new channel
-				end
-				
-				case message
-						when "/null\\"
-								#Do nothing :D
-						when "/join"
-								send_raw("JOIN " + $current)
-						when "/r"
-								$pie = 0
-								$reloaded = 1
-								load Dir.pwd + "/depends/reqfunc.rb"
-								load Dir.pwd + "/plugins/func.rb"
-								load_plugins()
-								load_users()
-								puts "Reloaded"
-						else
-								sendmessage(message)
-				end
-		end
-end
-
 def ping_loop()
-		while $quit == 0
-				sleep(1)
-				$timer += 1
-				
-				begin
-						if $timer > 600
-								$quit = 1
-								Thread.kill($t1)
-						if $socket.closed? == false
-								$socket.close()
-						end
-								system("ruby Main.rb")
-								puts "RECOVERED"
-						end
-				rescue Exception => e
-						err_log("Pingloop error: #{e.message} \n\n\n #{e.backtrace}")
-				end
+	while $quit == 0
+		sleep(1)
+		$timer += 1
+		
+		begin
+			if $timer > 600
+					$quit = 1
+					Thread.kill($t1)
+			if $socket.closed? == false
+					$socket.close()
+			end
+					system("ruby Main.rb")
+					puts "RECOVERED"
+			end
+		rescue Exception => e
+			watchdog_Log("Pingloop error: " + e.message, e.backtrace)
 		end
+	end
 end

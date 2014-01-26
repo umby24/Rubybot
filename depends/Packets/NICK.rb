@@ -1,0 +1,2 @@
+puts $name + "has changed their nick to " + $message
+send_raw("WHOIS #{$message}") # This is for our user verification.. we use WHOIS to ensure they're verified. if not, we can't verify its really them. This avoids imposters.
