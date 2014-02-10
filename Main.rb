@@ -25,6 +25,7 @@ $nspass = ""
 $ident = ""
 $serverip = ""
 $serverport = 6667
+$serverpass = ""
 $serverchannel = []
 $current = ""
 $authed = []
@@ -44,9 +45,10 @@ BEGIN {
   load Dir.pwd + "/depends/events.rb"
   load Dir.pwd + "/depends/HelpModule.rb"
   load Dir.pwd + "/depends/Watchdog.rb"
+  
   puts "#############################"
   puts "#        Ruby IRC bot       #"
-  puts "#        Version 4.4        #"
+  puts "#        Version 4.5        #"
   puts "#         by Umby24         #"
   puts "#############################"
 }
@@ -63,10 +65,14 @@ load_plugins()
 #time to connect to the server.
 
 $socket = TCPSocket.open($serverip,$serverport)
+
+if $serverpass != ""
+	send_raw("PASS #{$serverpass}")
+end
+
 send_raw("NICK #{$botname}")
 send_raw("USER " + $ident + " ruby ruby :" + $realname)
 send_raw("MODE #{$botname} +B-x")
-
 
 $t2 = Thread.new{systemloop()} # Console input thread
 $t3 = Thread.new{ping_loop()} # Auto-Reconnect thread
