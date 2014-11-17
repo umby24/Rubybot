@@ -1,0 +1,895 @@
+# Logfile created on 2014-11-16 15:22:15 -0600 by logger.rb/44203
+I, [2014-11-16T15:22:15.732548 #5212]  INFO -- : New Log Created at 2014-11-16 15:22:15 -0600
+03:22:15 PM> [INFO] -CORE- Created logger.
+03:22:16 PM> [DEBUG] -CORE- Started parse thread.
+I, [2014-11-16T15:25:30.977579 #5306]  INFO -- : New Log Created at 2014-11-16 15:25:30 -0600
+03:25:30 PM> [INFO] -CORE- Created logger.
+03:25:31 PM> [DEBUG] -CORE- Started parse thread.
+I, [2014-11-16T15:28:29.391922 #5377]  INFO -- : New Log Created at 2014-11-16 15:28:29 -0600
+03:28:29 PM> [INFO] -CORE- Created logger.
+I, [2014-11-16T15:29:15.544282 #5400]  INFO -- : New Log Created at 2014-11-16 15:29:15 -0600
+03:29:15 PM> [INFO] -CORE- Created logger.
+I, [2014-11-16T15:29:52.954095 #5412]  INFO -- : New Log Created at 2014-11-16 15:29:52 -0600
+03:29:52 PM> [INFO] -CORE- Created logger.
+03:29:53 PM> [DEBUG] -CORE- Started parse thread.
+I, [2014-11-16T15:30:51.961036 #5437]  INFO -- : New Log Created at 2014-11-16 15:30:51 -0600
+03:30:51 PM> [INFO] -CORE- Created logger.
+03:30:52 PM> [DEBUG] -CORE- Started parse thread.
+I, [2014-11-16T15:31:16.276015 #5468]  INFO -- : New Log Created at 2014-11-16 15:31:16 -0600
+03:31:16 PM> [INFO] -CORE- Created logger.
+03:31:16 PM> [DEBUG] -CORE- Started parse thread.
+I, [2014-11-16T15:31:44.272463 #5490]  INFO -- : New Log Created at 2014-11-16 15:31:44 -0600
+03:31:44 PM> [INFO] -CORE- Created logger.
+03:31:44 PM> [DEBUG] -CORE- Started parse thread.
+I, [2014-11-16T15:33:31.497462 #5528]  INFO -- : New Log Created at 2014-11-16 15:33:31 -0600
+03:33:31 PM> [INFO] -CORE- Created logger.
+03:33:31 PM> [DEBUG] -CORE- Started parse thread.
+03:33:31 PM> [INFO] -NOTICE- *** Looking up your hostname...
+03:33:32 PM> [INFO] -NOTICE- *** Checking Ident
+03:33:32 PM> [INFO] -NOTICE- *** Found your hostname
+03:33:36 PM> [INFO] -NOTICE- *** No Ident response
+03:33:37 PM> [INFO] -451- You have not registered
+03:33:37 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+03:33:37 PM> [INFO] -002- Your host is portlane.esper.net[91.217.189.68/6667], running version charybdis-3.5.0-dev
+03:33:37 PM> [INFO] -003- This server was created Mon Sep 1 2014 at 04:45:52 CEST
+03:33:37 PM> [INFO] -004- 
+03:33:37 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+03:33:37 PM> [INFO] -005- are supported by this server
+03:33:37 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+03:33:37 PM> [INFO] -251- There are 17 users and 8832 invisible on 16 servers
+03:33:37 PM> [INFO] -252- IRC Operators online
+03:33:37 PM> [INFO] -253- unknown connection(s)
+03:33:37 PM> [INFO] -254- channels formed
+03:33:37 PM> [INFO] -255- I have 2112 clients and 1 servers
+03:33:37 PM> [INFO] -265- Current local users 2112, max 5889
+03:33:37 PM> [INFO] -266- Current global users 8849, max 10068
+03:33:37 PM> [INFO] -250- Highest connection count: 5890 (5889 clients) (487778 connections received)
+03:33:37 PM> [INFO] -375- - portlane.esper.net Message of the Day -
+03:33:37 PM> [INFO] -372- -                    __   __
+03:33:37 PM> [INFO] -372- - .-----.-----.----.|  |_|  |.---.-.-----.-----.
+03:33:37 PM> [INFO] -372- - |  _  |  _  |   _||   _|  ||  _  |     |  -__|
+03:33:37 PM> [INFO] -372- - |   __|_____|__|  |____|__||___._|__|__|_____|
+03:33:37 PM> [INFO] -372- - |__|   Welcome to portlane.esper.net!
+03:33:37 PM> [INFO] -372- -
+03:33:37 PM> [INFO] -372- - Info:
+03:33:37 PM> [INFO] -372- -  Support for IPv4 & IPv6.
+03:33:37 PM> [INFO] -372- -  Server hosted by Portlane (www.portlane.com) and
+03:33:37 PM> [INFO] -372- -  located in Stockholm, Sweden.
+03:33:37 PM> [INFO] -372- -
+03:33:37 PM> [INFO] -372- - Timeline:
+03:33:37 PM> [INFO] -372- -  14/08/2012: We've now linked to EsperNet.
+03:33:37 PM> [INFO] -372- -
+03:33:37 PM> [INFO] -372- - Staff:
+03:33:37 PM> [INFO] -372- -    suom1: Administrator
+03:33:37 PM> [INFO] -372- -  brynjar: Administrator
+03:33:37 PM> [INFO] -372- -
+03:33:37 PM> [INFO] -372- - Channels:
+03:33:37 PM> [INFO] -372- -  #dragonweyr - Network staff assistance
+03:33:37 PM> [INFO] -372- -  #coders     - Help with programming
+03:33:37 PM> [INFO] -372- -  #lobby      - Chat
+03:33:37 PM> [INFO] -372- -  #help       - General IRC help
+03:33:37 PM> [INFO] -372- -
+03:33:37 PM> [INFO] -372- - Terms of Service:
+03:33:37 PM> [INFO] -372- -  Your use of this network constitutes an agreement to abide by the
+03:33:37 PM> [INFO] -372- -  rules presented in the EsperNet AUP - http://esper.net/charter.php
+03:33:37 PM> [INFO] -372- -  as well as any applicable Swedish and International laws.
+03:33:37 PM> [INFO] -372- -
+03:33:37 PM> [INFO] -372- -  Further, your use of this network implies consent to a port scan
+03:33:37 PM> [INFO] -372- -  to detect open proxies and otherwise compromised systems.
+03:33:37 PM> [INFO] -372- -
+03:33:37 PM> [INFO] -372- -  Properly configured bots are permitted, but are required to follow
+03:33:37 PM> [INFO] -372- -  the same rules as users. FServes are strictly prohibited.
+03:33:37 PM> [INFO] -372- -
+03:33:37 PM> [INFO] -372- -  We reserve the right to remove anyone at any time for any reason.
+03:33:37 PM> [INFO] -376- End of /MOTD command.
+03:33:37 PM> [INFO] -MODE- +i
+I, [2014-11-16T15:38:36.275532 #5706]  INFO -- : New Log Created at 2014-11-16 15:38:36 -0600
+03:38:36 PM> [INFO] -CORE- Created logger.
+03:38:36 PM> [DEBUG] -CORE- Started parse thread.
+03:38:36 PM> [INFO] -NOTICE- *** Looking up your hostname...
+03:38:36 PM> [INFO] -NOTICE- *** Checking Ident
+03:38:36 PM> [INFO] -NOTICE- *** Found your hostname
+I, [2014-11-16T15:40:04.765966 #5762]  INFO -- : New Log Created at 2014-11-16 15:40:04 -0600
+03:40:04 PM> [INFO] -CORE- Created logger.
+03:40:06 PM> [DEBUG] -CORE- Started parse thread.
+03:40:06 PM> [INFO] -NOTICE- *** Looking up your hostname...
+03:40:06 PM> [INFO] -NOTICE- *** Checking Ident
+03:40:06 PM> [INFO] -NOTICE- *** Found your hostname
+03:40:13 PM> [INFO] -NOTICE- *** No Ident response
+03:40:13 PM> [INFO] -451- You have not registered
+03:40:13 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+03:40:13 PM> [INFO] -002- Your host is moo.esper.net[moo.esper.net/6667], running version charybdis-3.5.0-dev
+03:40:13 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 09:40:06 UTC
+03:40:13 PM> [INFO] -004- 
+03:40:13 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+03:40:13 PM> [INFO] -005- are supported by this server
+03:40:13 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+03:40:13 PM> [INFO] -251- There are 17 users and 8816 invisible on 16 servers
+03:40:13 PM> [INFO] -252- IRC Operators online
+03:40:13 PM> [INFO] -253- unknown connection(s)
+03:40:13 PM> [INFO] -254- channels formed
+03:40:13 PM> [INFO] -255- I have 1452 clients and 1 servers
+03:40:13 PM> [INFO] -265- Current local users 1452, max 1520
+03:40:13 PM> [INFO] -266- Current global users 8833, max 9833
+03:40:13 PM> [INFO] -250- Highest connection count: 1521 (1520 clients) (73485 connections received)
+03:40:13 PM> [INFO] -375- - moo.esper.net Message of the Day -
+03:40:13 PM> [INFO] -372- -             _____
+03:40:13 PM> [INFO] -372- -            < moo >
+03:40:13 PM> [INFO] -372- -             -----
+03:40:13 PM> [INFO] -372- -                    \   ^__^
+03:40:13 PM> [INFO] -372- -                     \  (oo)\_______
+03:40:13 PM> [INFO] -372- -                        (__)\       )\/\
+03:40:13 PM> [INFO] -372- -                            ||----w |
+03:40:13 PM> [INFO] -372- -                            ||     ||
+03:40:13 PM> [INFO] -372- -
+03:40:13 PM> [INFO] -372- -          Host: moo [ irc.esper.net ]
+03:40:13 PM> [INFO] -372- -         Admin: Deltafire
+03:40:13 PM> [INFO] -372- -      Location: Paris, France
+03:40:13 PM> [INFO] -372- -
+03:40:13 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+03:40:13 PM> [INFO] -372- -
+03:40:13 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+03:40:13 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+03:40:13 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+03:40:13 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+03:40:13 PM> [INFO] -372- -
+03:40:13 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+03:40:13 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+03:40:13 PM> [INFO] -372- - policy document for more information about configuration
+03:40:13 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+03:40:13 PM> [INFO] -372- -
+03:40:13 PM> [INFO] -372- -                      * HELP CHANNELS *
+03:40:13 PM> [INFO] -372- -
+03:40:13 PM> [INFO] -372- -         #help: General IRC help
+03:40:13 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+03:40:13 PM> [INFO] -372- -
+03:40:13 PM> [INFO] -372- - Welcome to EsperNet.
+03:40:13 PM> [INFO] -372- -
+03:40:13 PM> [INFO] -376- End of /MOTD command.
+03:40:13 PM> [INFO] -MODE- +i
+03:40:41 PM> [INFO] -PRIVMSG- VERSION
+I, [2014-11-16T15:42:53.030214 #5813]  INFO -- : New Log Created at 2014-11-16 15:42:53 -0600
+03:42:53 PM> [INFO] -CORE- Created logger.
+03:42:53 PM> [ERROR] -PluginManager- Failed to load Plugins/default_packets.rb: undefined local variable or method `name' for #<Events:0x000000026af228>
+03:42:53 PM> [DEBUG] -PluginManager- ["/home/unknown/RubymineProjects/Rubybot/lib/events.rb:44:in `register_packet'", "Plugins/default_packets.rb:6:in `plugin_init'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:41:in `initialize'", "Plugins/default_packets.rb:40:in `new'", "Plugins/default_packets.rb:40:in `load_plugin'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:95:in `module_eval'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:95:in `load_plugin'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:82:in `block in load_plugins'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:80:in `each'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:80:in `load_plugins'", "/home/unknown/RubymineProjects/Rubybot/main.rb:60:in `initialize'", "/home/unknown/RubymineProjects/Rubybot/main.rb:112:in `new'", "/home/unknown/RubymineProjects/Rubybot/main.rb:112:in `<top (required)>'", "-e:1:in `load'", "-e:1:in `<main>'"]
+03:42:53 PM> [DEBUG] -CORE- Started parse thread.
+03:42:53 PM> [INFO] -NOTICE- *** Looking up your hostname...
+03:42:53 PM> [INFO] -NOTICE- *** Checking Ident
+03:42:53 PM> [INFO] -NOTICE- *** Found your hostname
+03:42:59 PM> [INFO] -NOTICE- *** No Ident response
+03:42:59 PM> [INFO] -451- You have not registered
+03:42:59 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+03:42:59 PM> [INFO] -002- Your host is moo.esper.net[moo.esper.net/6667], running version charybdis-3.5.0-dev
+03:42:59 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 09:40:06 UTC
+03:42:59 PM> [INFO] -004- 
+03:42:59 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+03:42:59 PM> [INFO] -005- are supported by this server
+03:42:59 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+03:42:59 PM> [INFO] -251- There are 17 users and 8809 invisible on 16 servers
+03:42:59 PM> [INFO] -252- IRC Operators online
+03:42:59 PM> [INFO] -254- channels formed
+03:42:59 PM> [INFO] -255- I have 1453 clients and 1 servers
+03:42:59 PM> [INFO] -265- Current local users 1453, max 1520
+03:42:59 PM> [INFO] -266- Current global users 8826, max 9833
+03:42:59 PM> [INFO] -250- Highest connection count: 1521 (1520 clients) (73497 connections received)
+03:42:59 PM> [INFO] -375- - moo.esper.net Message of the Day -
+03:42:59 PM> [INFO] -372- -             _____
+03:42:59 PM> [INFO] -372- -            < moo >
+03:42:59 PM> [INFO] -372- -             -----
+03:42:59 PM> [INFO] -372- -                    \   ^__^
+03:42:59 PM> [INFO] -372- -                     \  (oo)\_______
+03:42:59 PM> [INFO] -372- -                        (__)\       )\/\
+03:42:59 PM> [INFO] -372- -                            ||----w |
+03:42:59 PM> [INFO] -372- -                            ||     ||
+03:42:59 PM> [INFO] -372- -
+03:42:59 PM> [INFO] -372- -          Host: moo [ irc.esper.net ]
+03:42:59 PM> [INFO] -372- -         Admin: Deltafire
+03:42:59 PM> [INFO] -372- -      Location: Paris, France
+03:42:59 PM> [INFO] -372- -
+03:42:59 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+03:42:59 PM> [INFO] -372- -
+03:42:59 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+03:42:59 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+03:42:59 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+03:42:59 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+03:42:59 PM> [INFO] -372- -
+03:42:59 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+03:42:59 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+03:42:59 PM> [INFO] -372- - policy document for more information about configuration
+03:42:59 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+03:42:59 PM> [INFO] -372- -
+03:42:59 PM> [INFO] -372- -                      * HELP CHANNELS *
+03:42:59 PM> [INFO] -372- -
+03:42:59 PM> [INFO] -372- -         #help: General IRC help
+03:42:59 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+03:42:59 PM> [INFO] -372- -
+03:42:59 PM> [INFO] -372- - Welcome to EsperNet.
+03:42:59 PM> [INFO] -372- -
+03:42:59 PM> [INFO] -376- End of /MOTD command.
+03:42:59 PM> [INFO] -MODE- +i
+I, [2014-11-16T15:44:26.040850 #5853]  INFO -- : New Log Created at 2014-11-16 15:44:26 -0600
+03:44:26 PM> [INFO] -CORE- Created logger.
+03:44:26 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x000000013f3058>::Default_packets#handle_privmsg>
+03:44:26 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+03:44:26 PM> [DEBUG] -CORE- Started parse thread.
+03:44:26 PM> [INFO] -NOTICE- *** Looking up your hostname...
+03:44:26 PM> [INFO] -NOTICE- *** Checking Ident
+03:44:26 PM> [INFO] -NOTICE- *** Found your hostname
+03:44:33 PM> [INFO] -NOTICE- *** No Ident response
+03:44:33 PM> [INFO] -451- You have not registered
+03:44:33 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+03:44:33 PM> [INFO] -002- Your host is calamity.esper.net[calamity.esper.net/6667], running version charybdis-3.5.0-dev
+03:44:33 PM> [INFO] -003- This server was created Mon Oct 13 2014 at 00:53:29 UTC
+03:44:33 PM> [INFO] -004- 
+03:44:33 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+03:44:33 PM> [INFO] -005- are supported by this server
+03:44:33 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+03:44:33 PM> [INFO] -251- There are 17 users and 8808 invisible on 16 servers
+03:44:33 PM> [INFO] -252- IRC Operators online
+03:44:33 PM> [INFO] -254- channels formed
+03:44:33 PM> [INFO] -255- I have 2612 clients and 1 servers
+03:44:33 PM> [INFO] -265- Current local users 2612, max 2973
+03:44:33 PM> [INFO] -266- Current global users 8825, max 9833
+03:44:33 PM> [INFO] -250- Highest connection count: 2974 (2973 clients) (199531 connections received)
+03:44:33 PM> [INFO] -375- - calamity.esper.net Message of the Day -
+03:44:33 PM> [INFO] -372- -              _____     __           _ __
+03:44:33 PM> [INFO] -372- -             / ___/__ _/ /__ ___ _  (_) /___ __
+03:44:33 PM> [INFO] -372- -            / /__/ _ `/ / _ `/  ' \/ / __/ // /
+03:44:33 PM> [INFO] -372- -            \___/\_,_/_/\_,_/_/_/_/_/\__/\_, /
+03:44:33 PM> [INFO] -372- -                                        /___/
+03:44:33 PM> [INFO] -372- -
+03:44:33 PM> [INFO] -372- -          Host: calamity [ irc.esper.net ]
+03:44:33 PM> [INFO] -372- -         Admin: Deltafire
+03:44:33 PM> [INFO] -372- -      Location: New York City, New York, US
+03:44:33 PM> [INFO] -372- -
+03:44:33 PM> [INFO] -372- -                       ________________
+03:44:33 PM> [INFO] -372- -                  ____/ (  (    )   )  \___
+03:44:33 PM> [INFO] -372- -                 /( (  (  )   _    ))  )   )\
+03:44:33 PM> [INFO] -372- -               ((     (   )(    )  )   (   )  )
+03:44:33 PM> [INFO] -372- -             ((/  ( _(   )   (   _) ) (  () )  )
+03:44:33 PM> [INFO] -372- -            ( (  ( (_)   ((    (   )  .((_ ) .  )_
+03:44:33 PM> [INFO] -372- -           ( (  )    (      (  )    )   ) . ) (   )
+03:44:33 PM> [INFO] -372- -          (  (   (  (   ) (  _  ( _) ).  ) . ) ) ( )
+03:44:33 PM> [INFO] -372- -          ( (  (   ) (  )   (  ))     ) _)(   )  )  )
+03:44:33 PM> [INFO] -372- -         ( (  ( \ ) (    (_  ( ) ( )  )   ) )  )) ( )
+03:44:33 PM> [INFO] -372- -          (  (   (  (   (_ ( ) ( _    )  ) (  )  )   )
+03:44:33 PM> [INFO] -372- -         ( (  ( (  (  )     (_  )  ) )  _)   ) _( ( )
+03:44:33 PM> [INFO] -372- -          ((  (   )(    (     _    )   _) _(_ (  (_ )
+03:44:33 PM> [INFO] -372- -           (_((__(_(__(( ( ( |  ) ) ) )_))__))_)___)
+03:44:33 PM> [INFO] -372- -           ((__)        \\||lll|l||///          \_))
+03:44:33 PM> [INFO] -372- -                    (   /(/ (  )  ) )\   )
+03:44:33 PM> [INFO] -372- -                  (    ( ( ( | | ) ) )\   )
+03:44:33 PM> [INFO] -372- -                   (   /(| / ( )) ) ) )) )
+03:44:33 PM> [INFO] -372- -                 (     ( ((((_(|)_)))))     )
+03:44:33 PM> [INFO] -372- -                  (      ||\(|(|)|/||     )
+03:44:33 PM> [INFO] -372- -                (        |(||(||)||||        )
+03:44:33 PM> [INFO] -372- -                  (     //|/l|||)|\\ \     )
+03:44:33 PM> [INFO] -372- -                (/ / //  /|//||||\\  \ \  \ _)
+03:44:33 PM> [INFO] -372- -
+03:44:33 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+03:44:33 PM> [INFO] -372- -
+03:44:33 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+03:44:33 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+03:44:33 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+03:44:33 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+03:44:33 PM> [INFO] -372- -
+03:44:33 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+03:44:33 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+03:44:33 PM> [INFO] -372- - policy document for more information about configuration
+03:44:33 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+03:44:33 PM> [INFO] -372- -
+03:44:33 PM> [INFO] -372- -                      * HELP CHANNELS *
+03:44:33 PM> [INFO] -372- -
+03:44:33 PM> [INFO] -372- -         #help: General IRC help
+03:44:33 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+03:44:33 PM> [INFO] -372- -
+03:44:33 PM> [INFO] -372- - Welcome to EsperNet.
+03:44:33 PM> [INFO] -372- -
+03:44:33 PM> [INFO] -376- End of /MOTD command.
+03:44:33 PM> [INFO] -MODE- +i
+03:44:42 PM> [INFO] -rubybot- <umby24> hi
+03:44:50 PM> [INFO] -rubybot- <umby24> VERSION
+I, [2014-11-16T15:50:43.914880 #6027]  INFO -- : New Log Created at 2014-11-16 15:50:43 -0600
+03:50:43 PM> [INFO] -CORE- Created logger.
+03:50:43 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x000000023630b0>::Default_packets#handle_privmsg>
+03:50:43 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x000000023630b0>::Default_packets#handle_376>
+03:50:43 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+03:50:44 PM> [DEBUG] -CORE- Started parse thread.
+03:50:44 PM> [INFO] -NOTICE- *** Looking up your hostname...
+03:50:44 PM> [INFO] -NOTICE- *** Checking Ident
+03:50:44 PM> [INFO] -NOTICE- *** Found your hostname
+03:50:51 PM> [INFO] -NOTICE- *** No Ident response
+03:50:51 PM> [INFO] -451- You have not registered
+03:50:51 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+03:50:51 PM> [INFO] -002- Your host is insanity.esper.net[insanity.esper.net/6667], running version charybdis-3.5.0-dev
+03:50:51 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 00:18:17 UTC
+03:50:51 PM> [INFO] -004- 
+03:50:51 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+03:50:51 PM> [INFO] -005- are supported by this server
+03:50:51 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+03:50:51 PM> [INFO] -251- There are 17 users and 8809 invisible on 16 servers
+03:50:51 PM> [INFO] -252- IRC Operators online
+03:50:51 PM> [INFO] -254- channels formed
+03:50:51 PM> [INFO] -255- I have 1781 clients and 1 servers
+03:50:51 PM> [INFO] -265- Current local users 1781, max 1878
+03:50:51 PM> [INFO] -266- Current global users 8826, max 9198
+03:50:51 PM> [INFO] -250- Highest connection count: 1879 (1878 clients) (69526 connections received)
+03:50:51 PM> [INFO] -375- - insanity.esper.net Message of the Day -
+03:50:51 PM> [INFO] -372- -
+03:50:51 PM> [INFO] -372- -     * * *          * *         *   *         * * *
+03:50:51 PM> [INFO] -372- -       *    *   *  *      * *   **  *  * * *    *    *   *
+03:50:51 PM> [INFO] -372- -       *    **  *    *   *   *  * * *    *      *     * *
+03:50:51 PM> [INFO] -372- -       *    * * *     *  * * *  *  **    *      *      *
+03:50:51 PM> [INFO] -372- -     * * *  *  **  * *   *   *  *   *    *      *     *
+03:50:51 PM> [INFO] -372- -            *   *        *   *         * * *         *
+03:50:51 PM> [INFO] -372- -
+03:50:51 PM> [INFO] -372- -          Host: insanity [ irc.esper.net ]
+03:50:51 PM> [INFO] -372- -         Admin: Deltafire
+03:50:51 PM> [INFO] -372- -      Location: Roubaix, France
+03:50:51 PM> [INFO] -372- -
+03:50:51 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+03:50:51 PM> [INFO] -372- -
+03:50:51 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+03:50:51 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+03:50:51 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+03:50:51 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+03:50:51 PM> [INFO] -372- -
+03:50:51 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+03:50:51 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+03:50:51 PM> [INFO] -372- - policy document for more information about configuration
+03:50:51 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+03:50:51 PM> [INFO] -372- -
+03:50:51 PM> [INFO] -372- -                      * HELP CHANNELS *
+03:50:51 PM> [INFO] -372- -
+03:50:51 PM> [INFO] -372- -         #help: General IRC help
+03:50:51 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+03:50:51 PM> [INFO] -372- -
+03:50:51 PM> [INFO] -372- - Welcome to EsperNet.
+03:50:51 PM> [INFO] -372- -
+03:50:51 PM> [INFO] -MODE- +i
+03:50:51 PM> [INFO] -JOIN- 
+03:50:51 PM> [INFO] -332- A Testing center mainly for SinZBot and Renol, but open to anyone (within reason) | TODO: Command to Display Polling info to chat (i.e. jenkin url), using regex on MC version | PHP master race | https://github.com/SinZ163/NotEnoughMods
+03:50:51 PM> [INFO] -333- 
+03:50:51 PM> [INFO] -353- rubybot +spacechase0 Renol +dmod +Lunatrius +helinus|off +NightKev +Serenity @SinZ|offline @Pyker batman|work +bspkrs Not-c30a +umby24 +sMi +GenPage
+03:50:51 PM> [INFO] -366- End of /NAMES list.
+03:52:11 PM> [INFO] -#test- <umby24> hi
+03:52:17 PM> [INFO] -#test- <umby24> Sweeeet, it works.
+03:52:25 PM> [INFO] -rubybot- <umby24> VERSION
+I, [2014-11-16T15:55:35.741891 #6124]  INFO -- : New Log Created at 2014-11-16 15:55:35 -0600
+03:55:35 PM> [INFO] -CORE- Created logger.
+03:55:35 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x00000001e62ca0>::Default_packets#handle_privmsg>
+03:55:35 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x00000001e62ca0>::Default_packets#handle_376>
+03:55:35 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+03:55:36 PM> [DEBUG] -CORE- Started parse thread.
+03:55:36 PM> [INFO] -NOTICE- *** Looking up your hostname...
+03:55:36 PM> [INFO] -NOTICE- *** Checking Ident
+03:55:36 PM> [INFO] -NOTICE- *** Found your hostname
+03:55:40 PM> [INFO] -NOTICE- *** No Ident response
+03:55:41 PM> [INFO] -451- You have not registered
+03:55:41 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+03:55:41 PM> [INFO] -002- Your host is insanity.esper.net[insanity.esper.net/6667], running version charybdis-3.5.0-dev
+03:55:41 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 00:18:17 UTC
+03:55:41 PM> [INFO] -004- 
+03:55:41 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+03:55:41 PM> [INFO] -005- are supported by this server
+03:55:41 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+03:55:41 PM> [INFO] -251- There are 17 users and 8810 invisible on 16 servers
+03:55:41 PM> [INFO] -252- IRC Operators online
+03:55:41 PM> [INFO] -253- unknown connection(s)
+03:55:41 PM> [INFO] -254- channels formed
+03:55:41 PM> [INFO] -255- I have 1783 clients and 1 servers
+03:55:41 PM> [INFO] -265- Current local users 1783, max 1878
+03:55:41 PM> [INFO] -266- Current global users 8827, max 9198
+03:55:41 PM> [INFO] -250- Highest connection count: 1879 (1878 clients) (69540 connections received)
+03:55:41 PM> [INFO] -375- - insanity.esper.net Message of the Day -
+03:55:41 PM> [INFO] -372- -
+03:55:41 PM> [INFO] -372- -     * * *          * *         *   *         * * *
+03:55:41 PM> [INFO] -372- -       *    *   *  *      * *   **  *  * * *    *    *   *
+03:55:41 PM> [INFO] -372- -       *    **  *    *   *   *  * * *    *      *     * *
+03:55:41 PM> [INFO] -372- -       *    * * *     *  * * *  *  **    *      *      *
+03:55:41 PM> [INFO] -372- -     * * *  *  **  * *   *   *  *   *    *      *     *
+03:55:41 PM> [INFO] -372- -            *   *        *   *         * * *         *
+03:55:41 PM> [INFO] -372- -
+03:55:41 PM> [INFO] -372- -          Host: insanity [ irc.esper.net ]
+03:55:41 PM> [INFO] -372- -         Admin: Deltafire
+03:55:41 PM> [INFO] -372- -      Location: Roubaix, France
+03:55:41 PM> [INFO] -372- -
+03:55:41 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+03:55:41 PM> [INFO] -372- -
+03:55:41 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+03:55:41 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+03:55:41 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+03:55:41 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+03:55:41 PM> [INFO] -372- -
+03:55:41 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+03:55:41 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+03:55:41 PM> [INFO] -372- - policy document for more information about configuration
+03:55:41 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+03:55:41 PM> [INFO] -372- -
+03:55:41 PM> [INFO] -372- -                      * HELP CHANNELS *
+03:55:41 PM> [INFO] -372- -
+03:55:41 PM> [INFO] -372- -         #help: General IRC help
+03:55:41 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+03:55:41 PM> [INFO] -372- -
+03:55:41 PM> [INFO] -372- - Welcome to EsperNet.
+03:55:41 PM> [INFO] -372- -
+03:55:41 PM> [INFO] -MODE- +i
+03:55:41 PM> [INFO] -JOIN- 
+03:55:41 PM> [INFO] -332- A Testing center mainly for SinZBot and Renol, but open to anyone (within reason) | TODO: Command to Display Polling info to chat (i.e. jenkin url), using regex on MC version | PHP master race | https://github.com/SinZ163/NotEnoughMods
+03:55:41 PM> [INFO] -333- 
+03:55:41 PM> [INFO] -353- rubybot +spacechase0 Renol +dmod +Lunatrius +helinus|off +NightKev +Serenity @SinZ|offline @Pyker batman|work +bspkrs Not-c30a +umby24 +sMi +GenPage
+03:55:41 PM> [INFO] -366- End of /NAMES list.
+03:55:58 PM> [INFO] -rubybot- <umby24> VERSION
+03:55:58 PM> [INFO] -VERSION- Handled CTCP Version
+04:02:42 PM> [INFO] -#test- <umby24> afk
+04:02:57 PM> [INFO] -rubybot- <umby24> PING
+04:02:57 PM> [INFO] -PING- Handled CTCP PING
+I, [2014-11-16T21:50:35.174597 #11418]  INFO -- : New Log Created at 2014-11-16 21:50:35 -0600
+09:50:35 PM> [INFO] -CORE- Created logger.
+09:50:35 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x00000000cf21c8>::Default_packets#handle_privmsg>
+09:50:35 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x00000000cf21c8>::Default_packets#handle_376>
+09:50:35 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+09:50:35 PM> [DEBUG] -CORE- Started parse thread.
+09:50:35 PM> [INFO] -NOTICE- *** Looking up your hostname...
+09:50:35 PM> [INFO] -NOTICE- *** Checking Ident
+09:50:36 PM> [INFO] -NOTICE- *** Found your hostname
+09:50:43 PM> [INFO] -NOTICE- *** No Ident response
+09:50:43 PM> [INFO] -451- You have not registered
+09:50:43 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+09:50:43 PM> [INFO] -002- Your host is insanity.esper.net[insanity.esper.net/6667], running version charybdis-3.5.0-dev
+09:50:43 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 00:18:17 UTC
+09:50:43 PM> [INFO] -004- 
+09:50:43 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+09:50:43 PM> [INFO] -005- are supported by this server
+09:50:43 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+09:50:43 PM> [INFO] -251- There are 17 users and 8226 invisible on 16 servers
+09:50:43 PM> [INFO] -252- IRC Operators online
+09:50:43 PM> [INFO] -253- unknown connection(s)
+09:50:43 PM> [INFO] -254- channels formed
+09:50:43 PM> [INFO] -255- I have 1668 clients and 1 servers
+09:50:43 PM> [INFO] -265- Current local users 1668, max 1878
+09:50:43 PM> [INFO] -266- Current global users 8243, max 9198
+09:50:43 PM> [INFO] -250- Highest connection count: 1879 (1878 clients) (70507 connections received)
+09:50:43 PM> [INFO] -375- - insanity.esper.net Message of the Day -
+09:50:43 PM> [INFO] -372- -
+09:50:43 PM> [INFO] -372- -     * * *          * *         *   *         * * *
+09:50:43 PM> [INFO] -372- -       *    *   *  *      * *   **  *  * * *    *    *   *
+09:50:43 PM> [INFO] -372- -       *    **  *    *   *   *  * * *    *      *     * *
+09:50:43 PM> [INFO] -372- -       *    * * *     *  * * *  *  **    *      *      *
+09:50:43 PM> [INFO] -372- -     * * *  *  **  * *   *   *  *   *    *      *     *
+09:50:43 PM> [INFO] -372- -            *   *        *   *         * * *         *
+09:50:43 PM> [INFO] -372- -
+09:50:43 PM> [INFO] -372- -          Host: insanity [ irc.esper.net ]
+09:50:43 PM> [INFO] -372- -         Admin: Deltafire
+09:50:43 PM> [INFO] -372- -      Location: Roubaix, France
+09:50:43 PM> [INFO] -372- -
+09:50:43 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+09:50:43 PM> [INFO] -372- -
+09:50:43 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+09:50:43 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+09:50:43 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+09:50:43 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+09:50:43 PM> [INFO] -372- -
+09:50:43 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+09:50:43 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+09:50:43 PM> [INFO] -372- - policy document for more information about configuration
+09:50:43 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+09:50:43 PM> [INFO] -372- -
+09:50:43 PM> [INFO] -372- -                      * HELP CHANNELS *
+09:50:43 PM> [INFO] -372- -
+09:50:43 PM> [INFO] -372- -         #help: General IRC help
+09:50:43 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+09:50:43 PM> [INFO] -372- -
+09:50:43 PM> [INFO] -372- - Welcome to EsperNet.
+09:50:43 PM> [INFO] -372- -
+09:50:43 PM> [INFO] -MODE- +i
+09:50:43 PM> [INFO] -JOIN- 
+09:50:44 PM> [INFO] -332- A Testing center mainly for SinZBot and Renol, but open to anyone (within reason) | TODO: Command to Display Polling info to chat (i.e. jenkin url), using regex on MC version | PHP master race | https://github.com/SinZ163/NotEnoughMods
+09:50:44 PM> [INFO] -333- 
+09:50:44 PM> [INFO] -353- rubybot +SpiderNight +spacechase0 Renol +dmod +Lunatrius +helinus|off +NightKev +Serenity @SinZ @Pyker batman|loving +bspkrs Not-c30a +umby24 +sMi +GenPage
+09:50:44 PM> [INFO] -366- End of /NAMES list.
+09:51:19 PM> [INFO] -#test- <umby24> .-.
+09:51:20 PM> [INFO] -#test- <umby24> hm.
+09:51:30 PM> [INFO] -#test- <umby24> +potato
+09:51:30 PM> [ERROR] -Packet- Error Handling packet PRIVMSG, undefined method `include' for "+potato":String
+09:51:30 PM> [DEBUG] -Packet- ["Plugins/default_packets.rb:44:in `handle_privmsg'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:85:in `call'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:85:in `call_packet'", "/home/unknown/RubymineProjects/Rubybot/network/irc_network.rb:103:in `parse'", "/home/unknown/RubymineProjects/Rubybot/main.rb:69:in `block in run'"]
+09:53:44 PM> [INFO] -#test- <umby24> well
+09:54:01 PM> [INFO] -#test- <umby24> would be great if the commands plugin would have loaded.
+I, [2014-11-16T21:55:54.078373 #11531]  INFO -- : New Log Created at 2014-11-16 21:55:54 -0600
+09:55:54 PM> [INFO] -CORE- Created logger.
+09:55:54 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x00000001f2e378>::Default_packets#handle_privmsg>
+09:55:54 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x00000001f2e378>::Default_packets#handle_376>
+09:55:54 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+09:55:54 PM> [ERROR] -PluginManager- Failed to load Plugins/default_commands.rb: undefined local variable or method `name' for #<Events:0x00000001f2e670>
+09:55:54 PM> [DEBUG] -PluginManager- ["/home/unknown/RubymineProjects/Rubybot/lib/events.rb:24:in `register_command'", "Plugins/default_commands.rb:6:in `plugin_init'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:41:in `initialize'", "Plugins/default_commands.rb:22:in `new'", "Plugins/default_commands.rb:22:in `load_plugin'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:93:in `module_eval'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:93:in `load_plugin'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:80:in `block in load_plugins'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:79:in `each'", "/home/unknown/RubymineProjects/Rubybot/lib/plugins.rb:79:in `load_plugins'", "/home/unknown/RubymineProjects/Rubybot/main.rb:60:in `initialize'", "/home/unknown/RubymineProjects/Rubybot/main.rb:112:in `new'", "/home/unknown/RubymineProjects/Rubybot/main.rb:112:in `<top (required)>'", "-e:1:in `load'", "-e:1:in `<main>'"]
+09:55:54 PM> [DEBUG] -CORE- Started parse thread.
+09:55:54 PM> [INFO] -NOTICE- *** Looking up your hostname...
+09:55:54 PM> [INFO] -NOTICE- *** Checking Ident
+09:55:54 PM> [INFO] -NOTICE- *** Found your hostname
+09:55:59 PM> [INFO] -NOTICE- *** No Ident response
+09:55:59 PM> [INFO] -451- You have not registered
+09:55:59 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+09:55:59 PM> [INFO] -002- Your host is moo.esper.net[moo.esper.net/6667], running version charybdis-3.5.0-dev
+09:55:59 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 09:40:06 UTC
+09:55:59 PM> [INFO] -004- 
+09:55:59 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+09:55:59 PM> [INFO] -005- are supported by this server
+09:55:59 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+09:55:59 PM> [INFO] -251- There are 17 users and 8215 invisible on 16 servers
+09:55:59 PM> [INFO] -252- IRC Operators online
+09:55:59 PM> [INFO] -253- unknown connection(s)
+09:55:59 PM> [INFO] -254- channels formed
+09:55:59 PM> [INFO] -255- I have 1358 clients and 1 servers
+09:55:59 PM> [INFO] -265- Current local users 1358, max 1520
+09:55:59 PM> [INFO] -266- Current global users 8232, max 9833
+09:55:59 PM> [INFO] -250- Highest connection count: 1521 (1520 clients) (74531 connections received)
+09:55:59 PM> [INFO] -375- - moo.esper.net Message of the Day -
+09:55:59 PM> [INFO] -372- -             _____
+09:55:59 PM> [INFO] -372- -            < moo >
+09:55:59 PM> [INFO] -372- -             -----
+09:55:59 PM> [INFO] -372- -                    \   ^__^
+09:55:59 PM> [INFO] -372- -                     \  (oo)\_______
+09:55:59 PM> [INFO] -372- -                        (__)\       )\/\
+09:55:59 PM> [INFO] -372- -                            ||----w |
+09:55:59 PM> [INFO] -372- -                            ||     ||
+09:55:59 PM> [INFO] -372- -
+09:55:59 PM> [INFO] -372- -          Host: moo [ irc.esper.net ]
+09:55:59 PM> [INFO] -372- -         Admin: Deltafire
+09:55:59 PM> [INFO] -372- -      Location: Paris, France
+09:55:59 PM> [INFO] -372- -
+09:55:59 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+09:55:59 PM> [INFO] -372- -
+09:55:59 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+09:55:59 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+09:55:59 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+09:55:59 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+09:55:59 PM> [INFO] -372- -
+09:55:59 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+09:55:59 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+09:55:59 PM> [INFO] -372- - policy document for more information about configuration
+09:55:59 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+09:55:59 PM> [INFO] -372- -
+09:55:59 PM> [INFO] -372- -                      * HELP CHANNELS *
+09:55:59 PM> [INFO] -372- -
+09:55:59 PM> [INFO] -372- -         #help: General IRC help
+09:55:59 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+09:55:59 PM> [INFO] -372- -
+09:55:59 PM> [INFO] -372- - Welcome to EsperNet.
+09:55:59 PM> [INFO] -372- -
+09:55:59 PM> [INFO] -MODE- +i
+09:55:59 PM> [INFO] -JOIN- 
+09:56:00 PM> [INFO] -332- A Testing center mainly for SinZBot and Renol, but open to anyone (within reason) | TODO: Command to Display Polling info to chat (i.e. jenkin url), using regex on MC version | PHP master race | https://github.com/SinZ163/NotEnoughMods
+09:56:00 PM> [INFO] -333- 
+09:56:00 PM> [INFO] -353- rubybot +SpiderNight +spacechase0 Renol +dmod +Lunatrius +helinus|off +NightKev +Serenity @SinZ @Pyker batman|loving +bspkrs Not-c30a +umby24 +sMi +GenPage
+09:56:00 PM> [INFO] -366- End of /NAMES list.
+I, [2014-11-16T21:56:28.105391 #11554]  INFO -- : New Log Created at 2014-11-16 21:56:28 -0600
+09:56:28 PM> [INFO] -CORE- Created logger.
+09:56:28 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x000000013a2360>::Default_packets#handle_privmsg>
+09:56:28 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x000000013a2360>::Default_packets#handle_376>
+09:56:28 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+09:56:28 PM> [DEBUG] -CORE- Registered Command: say [Method: #<Method: #<Module:0x000000013977f8>::Default_Commands#handle_say>
+09:56:28 PM> [DEBUG] -CORE- Registered Command: say [Method: #<Method: #<Module:0x000000013977f8>::Default_Commands#handle_reload>
+09:56:28 PM> [INFO] -PluginManager- Loaded Default Plugins by umby24, Version 1.0
+09:56:28 PM> [DEBUG] -CORE- Started parse thread.
+09:56:28 PM> [INFO] -NOTICE- *** Looking up your hostname...
+09:56:28 PM> [INFO] -NOTICE- *** Checking Ident
+09:56:28 PM> [INFO] -NOTICE- *** Found your hostname
+09:56:34 PM> [INFO] -NOTICE- *** No Ident response
+09:56:34 PM> [INFO] -451- You have not registered
+09:56:34 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+09:56:34 PM> [INFO] -002- Your host is insanity.esper.net[insanity.esper.net/6667], running version charybdis-3.5.0-dev
+09:56:34 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 00:18:17 UTC
+09:56:34 PM> [INFO] -004- 
+09:56:34 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+09:56:34 PM> [INFO] -005- are supported by this server
+09:56:34 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+09:56:34 PM> [INFO] -251- There are 17 users and 8214 invisible on 16 servers
+09:56:34 PM> [INFO] -252- IRC Operators online
+09:56:34 PM> [INFO] -254- channels formed
+09:56:34 PM> [INFO] -255- I have 1665 clients and 1 servers
+09:56:34 PM> [INFO] -265- Current local users 1665, max 1878
+09:56:34 PM> [INFO] -266- Current global users 8231, max 9198
+09:56:34 PM> [INFO] -250- Highest connection count: 1879 (1878 clients) (70519 connections received)
+09:56:34 PM> [INFO] -375- - insanity.esper.net Message of the Day -
+09:56:34 PM> [INFO] -372- -
+09:56:34 PM> [INFO] -372- -     * * *          * *         *   *         * * *
+09:56:34 PM> [INFO] -372- -       *    *   *  *      * *   **  *  * * *    *    *   *
+09:56:34 PM> [INFO] -372- -       *    **  *    *   *   *  * * *    *      *     * *
+09:56:34 PM> [INFO] -372- -       *    * * *     *  * * *  *  **    *      *      *
+09:56:34 PM> [INFO] -372- -     * * *  *  **  * *   *   *  *   *    *      *     *
+09:56:34 PM> [INFO] -372- -            *   *        *   *         * * *         *
+09:56:34 PM> [INFO] -372- -
+09:56:34 PM> [INFO] -372- -          Host: insanity [ irc.esper.net ]
+09:56:34 PM> [INFO] -372- -         Admin: Deltafire
+09:56:34 PM> [INFO] -372- -      Location: Roubaix, France
+09:56:34 PM> [INFO] -372- -
+09:56:34 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+09:56:34 PM> [INFO] -372- -
+09:56:34 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+09:56:34 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+09:56:34 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+09:56:34 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+09:56:34 PM> [INFO] -372- -
+09:56:34 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+09:56:34 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+09:56:34 PM> [INFO] -372- - policy document for more information about configuration
+09:56:34 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+09:56:34 PM> [INFO] -372- -
+09:56:34 PM> [INFO] -372- -                      * HELP CHANNELS *
+09:56:34 PM> [INFO] -372- -
+09:56:34 PM> [INFO] -372- -         #help: General IRC help
+09:56:34 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+09:56:34 PM> [INFO] -372- -
+09:56:34 PM> [INFO] -372- - Welcome to EsperNet.
+09:56:34 PM> [INFO] -372- -
+09:56:34 PM> [INFO] -MODE- +i
+09:56:34 PM> [INFO] -JOIN- 
+09:56:35 PM> [INFO] -332- A Testing center mainly for SinZBot and Renol, but open to anyone (within reason) | TODO: Command to Display Polling info to chat (i.e. jenkin url), using regex on MC version | PHP master race | https://github.com/SinZ163/NotEnoughMods
+09:56:35 PM> [INFO] -333- 
+09:56:35 PM> [INFO] -353- rubybot +SpiderNight +spacechase0 Renol +dmod +Lunatrius +helinus|off +NightKev +Serenity @SinZ @Pyker batman|loving +bspkrs Not-c30a +umby24 +sMi +GenPage
+09:56:35 PM> [INFO] -366- End of /NAMES list.
+09:56:43 PM> [INFO] -#test- <umby24> +say hi
+09:56:43 PM> [ERROR] -Command- Error Handling command say, undefined method `pm' for #<Bot:0x000000013aa920>
+09:56:43 PM> [DEBUG] -Command- ["Plugins/default_commands.rb:17:in `handle_reload'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:64:in `call'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:64:in `call_command'", "Plugins/default_packets.rb:50:in `handle_privmsg'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:85:in `call'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:85:in `call_packet'", "/home/unknown/RubymineProjects/Rubybot/network/irc_network.rb:102:in `parse'", "/home/unknown/RubymineProjects/Rubybot/main.rb:69:in `block in run'"]
+I, [2014-11-16T21:57:41.342208 #11581]  INFO -- : New Log Created at 2014-11-16 21:57:41 -0600
+09:57:41 PM> [INFO] -CORE- Created logger.
+09:57:41 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x0000000288a430>::Default_packets#handle_privmsg>
+09:57:41 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x0000000288a430>::Default_packets#handle_376>
+09:57:41 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+09:57:41 PM> [DEBUG] -CORE- Registered Command: say [Method: #<Method: #<Module:0x0000000287f800>::Default_Commands#handle_say>
+09:57:41 PM> [DEBUG] -CORE- Registered Command: reload [Method: #<Method: #<Module:0x0000000287f800>::Default_Commands#handle_reload>
+09:57:41 PM> [INFO] -PluginManager- Loaded Default Plugins by umby24, Version 1.0
+09:57:41 PM> [DEBUG] -CORE- Started parse thread.
+09:57:41 PM> [INFO] -NOTICE- *** Looking up your hostname...
+09:57:42 PM> [INFO] -NOTICE- *** Checking Ident
+09:57:42 PM> [INFO] -NOTICE- *** Found your hostname
+09:57:49 PM> [INFO] -NOTICE- *** No Ident response
+09:57:49 PM> [INFO] -451- You have not registered
+09:57:49 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+09:57:49 PM> [INFO] -002- Your host is insanity.esper.net[insanity.esper.net/6667], running version charybdis-3.5.0-dev
+09:57:49 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 00:18:17 UTC
+09:57:49 PM> [INFO] -004- 
+09:57:49 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+09:57:49 PM> [INFO] -005- are supported by this server
+09:57:49 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+09:57:49 PM> [INFO] -251- There are 17 users and 8209 invisible on 16 servers
+09:57:49 PM> [INFO] -252- IRC Operators online
+09:57:49 PM> [INFO] -253- unknown connection(s)
+09:57:49 PM> [INFO] -254- channels formed
+09:57:49 PM> [INFO] -255- I have 1666 clients and 1 servers
+09:57:49 PM> [INFO] -265- Current local users 1666, max 1878
+09:57:49 PM> [INFO] -266- Current global users 8226, max 9198
+09:57:49 PM> [INFO] -250- Highest connection count: 1879 (1878 clients) (70522 connections received)
+09:57:49 PM> [INFO] -375- - insanity.esper.net Message of the Day -
+09:57:49 PM> [INFO] -372- -
+09:57:49 PM> [INFO] -372- -     * * *          * *         *   *         * * *
+09:57:49 PM> [INFO] -372- -       *    *   *  *      * *   **  *  * * *    *    *   *
+09:57:49 PM> [INFO] -372- -       *    **  *    *   *   *  * * *    *      *     * *
+09:57:49 PM> [INFO] -372- -       *    * * *     *  * * *  *  **    *      *      *
+09:57:49 PM> [INFO] -372- -     * * *  *  **  * *   *   *  *   *    *      *     *
+09:57:49 PM> [INFO] -372- -            *   *        *   *         * * *         *
+09:57:49 PM> [INFO] -372- -
+09:57:49 PM> [INFO] -372- -          Host: insanity [ irc.esper.net ]
+09:57:49 PM> [INFO] -372- -         Admin: Deltafire
+09:57:49 PM> [INFO] -372- -      Location: Roubaix, France
+09:57:49 PM> [INFO] -372- -
+09:57:49 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+09:57:49 PM> [INFO] -372- -
+09:57:49 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+09:57:49 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+09:57:49 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+09:57:49 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+09:57:49 PM> [INFO] -372- -
+09:57:49 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+09:57:49 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+09:57:49 PM> [INFO] -372- - policy document for more information about configuration
+09:57:49 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+09:57:49 PM> [INFO] -372- -
+09:57:49 PM> [INFO] -372- -                      * HELP CHANNELS *
+09:57:49 PM> [INFO] -372- -
+09:57:49 PM> [INFO] -372- -         #help: General IRC help
+09:57:49 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+09:57:49 PM> [INFO] -372- -
+09:57:49 PM> [INFO] -372- - Welcome to EsperNet.
+09:57:49 PM> [INFO] -372- -
+09:57:49 PM> [INFO] -MODE- +i
+09:57:49 PM> [INFO] -JOIN- 
+09:57:50 PM> [INFO] -332- A Testing center mainly for SinZBot and Renol, but open to anyone (within reason) | TODO: Command to Display Polling info to chat (i.e. jenkin url), using regex on MC version | PHP master race | https://github.com/SinZ163/NotEnoughMods
+09:57:50 PM> [INFO] -333- 
+09:57:50 PM> [INFO] -353- rubybot +SpiderNight +spacechase0 Renol +dmod +Lunatrius +helinus|off +NightKev +Serenity @SinZ @Pyker batman|loving +bspkrs Not-c30a +umby24 +sMi +GenPage
+09:57:50 PM> [INFO] -366- End of /NAMES list.
+09:57:52 PM> [INFO] -#test- <umby24> +say hi
+09:58:00 PM> [INFO] -#test- <umby24> kaay...
+09:58:03 PM> [INFO] -#test- <umby24> +reload
+09:58:03 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x000000027e3518>::Default_packets#handle_privmsg>
+09:58:03 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x000000027e3518>::Default_packets#handle_376>
+09:58:03 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+09:58:03 PM> [DEBUG] -CORE- Registered Command: say [Method: #<Method: #<Module:0x000000027cf748>::Default_Commands#handle_say>
+09:58:03 PM> [DEBUG] -CORE- Registered Command: reload [Method: #<Method: #<Module:0x000000027cf748>::Default_Commands#handle_reload>
+09:58:03 PM> [INFO] -PluginManager- Loaded Default Plugins by umby24, Version 1.0
+09:58:11 PM> [INFO] -#test- <umby24> that worked
+09:59:26 PM> [INFO] -#test- <umby24> +reload
+09:59:26 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x000000027c6058>::Default_packets#handle_privmsg>
+09:59:26 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x000000027c6058>::Default_packets#handle_376>
+09:59:26 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+09:59:26 PM> [DEBUG] -CORE- Registered Command: say [Method: #<Method: #<Module:0x000000027a1c08>::Default_Commands#handle_say>
+09:59:26 PM> [DEBUG] -CORE- Registered Command: reload [Method: #<Method: #<Module:0x000000027a1c08>::Default_Commands#handle_reload>
+09:59:26 PM> [INFO] -PluginManager- Loaded Default Plugins by umby24, Version 1.0
+09:59:29 PM> [INFO] -#test- <umby24> +say asdf
+09:59:37 PM> [INFO] -#test- <umby24> kay
+09:59:39 PM> [INFO] -#test- <umby24> +reload
+09:59:39 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x000000026cf2a8>::Default_packets#handle_privmsg>
+09:59:39 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x000000026cf2a8>::Default_packets#handle_376>
+09:59:39 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+09:59:39 PM> [DEBUG] -CORE- Registered Command: say [Method: #<Method: #<Module:0x000000026c7f80>::Default_Commands#handle_say>
+09:59:39 PM> [DEBUG] -CORE- Registered Command: reload [Method: #<Method: #<Module:0x000000026c7f80>::Default_Commands#handle_reload>
+09:59:39 PM> [INFO] -PluginManager- Loaded Default Plugins by umby24, Version 1.0
+10:00:04 PM> [INFO] -#test- <umby24> the send privmsg thing ain't workin so well
+10:00:04 PM> [INFO] -#test- <umby24> xd
+10:00:23 PM> [INFO] -#test- <SinZ> are you adding the : before the message?
+10:00:41 PM> [INFO] -QUIT- Ping timeout: 195 seconds
+10:00:42 PM> [INFO] -QUIT- Quit: .
+10:02:03 PM> [INFO] -#test- <umby24> yes
+10:02:16 PM> [INFO] -#test- <umby24> maybe my message splitting..
+10:02:25 PM> [INFO] -#test- <umby24> and that part of the bot doesn't reload..
+10:02:35 PM> [INFO] -#test- <umby24> suppose I could make it, but idk xD
+I, [2014-11-16T22:04:00.158719 #11707]  INFO -- : New Log Created at 2014-11-16 22:04:00 -0600
+10:04:00 PM> [INFO] -CORE- Created logger.
+10:04:00 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x000000018f6190>::Default_packets#handle_privmsg>
+10:04:00 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x000000018f6190>::Default_packets#handle_376>
+10:04:00 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+10:04:00 PM> [DEBUG] -CORE- Registered Command: say [Method: #<Method: #<Module:0x000000018eb560>::Default_Commands#handle_say>
+10:04:00 PM> [DEBUG] -CORE- Registered Command: reload [Method: #<Method: #<Module:0x000000018eb560>::Default_Commands#handle_reload>
+10:04:00 PM> [INFO] -PluginManager- Loaded Default Plugins by umby24, Version 1.0
+10:04:00 PM> [DEBUG] -CORE- Started parse thread.
+10:04:00 PM> [INFO] -NOTICE- *** Looking up your hostname...
+10:04:00 PM> [INFO] -NOTICE- *** Checking Ident
+10:04:00 PM> [INFO] -NOTICE- *** Found your hostname
+10:04:05 PM> [INFO] -NOTICE- *** No Ident response
+10:04:05 PM> [INFO] -451- You have not registered
+10:04:05 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+10:04:05 PM> [INFO] -002- Your host is insanity.esper.net[insanity.esper.net/6667], running version charybdis-3.5.0-dev
+10:04:05 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 00:18:17 UTC
+10:04:05 PM> [INFO] -004- 
+10:04:05 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+10:04:05 PM> [INFO] -005- are supported by this server
+10:04:05 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+10:04:05 PM> [INFO] -251- There are 17 users and 8202 invisible on 16 servers
+10:04:05 PM> [INFO] -252- IRC Operators online
+10:04:05 PM> [INFO] -254- channels formed
+10:04:05 PM> [INFO] -255- I have 1674 clients and 1 servers
+10:04:05 PM> [INFO] -265- Current local users 1674, max 1878
+10:04:05 PM> [INFO] -266- Current global users 8219, max 9198
+10:04:06 PM> [INFO] -250- Highest connection count: 1879 (1878 clients) (70542 connections received)
+10:04:06 PM> [INFO] -375- - insanity.esper.net Message of the Day -
+10:04:06 PM> [INFO] -372- -
+10:04:06 PM> [INFO] -372- -     * * *          * *         *   *         * * *
+10:04:06 PM> [INFO] -372- -       *    *   *  *      * *   **  *  * * *    *    *   *
+10:04:06 PM> [INFO] -372- -       *    **  *    *   *   *  * * *    *      *     * *
+10:04:06 PM> [INFO] -372- -       *    * * *     *  * * *  *  **    *      *      *
+10:04:06 PM> [INFO] -372- -     * * *  *  **  * *   *   *  *   *    *      *     *
+10:04:06 PM> [INFO] -372- -            *   *        *   *         * * *         *
+10:04:06 PM> [INFO] -372- -
+10:04:06 PM> [INFO] -372- -          Host: insanity [ irc.esper.net ]
+10:04:06 PM> [INFO] -372- -         Admin: Deltafire
+10:04:06 PM> [INFO] -372- -      Location: Roubaix, France
+10:04:06 PM> [INFO] -372- -
+10:04:06 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+10:04:06 PM> [INFO] -372- -
+10:04:06 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+10:04:06 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+10:04:06 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+10:04:06 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+10:04:06 PM> [INFO] -372- -
+10:04:06 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+10:04:06 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+10:04:06 PM> [INFO] -372- - policy document for more information about configuration
+10:04:06 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+10:04:06 PM> [INFO] -372- -
+10:04:06 PM> [INFO] -372- -                      * HELP CHANNELS *
+10:04:06 PM> [INFO] -372- -
+10:04:06 PM> [INFO] -372- -         #help: General IRC help
+10:04:06 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+10:04:06 PM> [INFO] -372- -
+10:04:06 PM> [INFO] -372- - Welcome to EsperNet.
+10:04:06 PM> [INFO] -372- -
+10:04:06 PM> [INFO] -MODE- +i
+10:04:06 PM> [INFO] -JOIN- 
+10:04:06 PM> [INFO] -332- A Testing center mainly for SinZBot and Renol, but open to anyone (within reason) | TODO: Command to Display Polling info to chat (i.e. jenkin url), using regex on MC version | PHP master race | https://github.com/SinZ163/NotEnoughMods
+10:04:06 PM> [INFO] -333- 
+10:04:06 PM> [INFO] -353- rubybot Renol +dmod +Lunatrius +helinus|off +NightKev +Serenity @SinZ @Pyker batman|loving +bspkrs Not-c30a +umby24 +sMi +GenPage
+10:04:06 PM> [INFO] -366- End of /NAMES list.
+10:04:14 PM> [INFO] -#test- <umby24> +say hi
+I, [2014-11-16T22:06:57.106853 #11767]  INFO -- : New Log Created at 2014-11-16 22:06:57 -0600
+10:06:57 PM> [INFO] -CORE- Created logger.
+10:06:57 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x00000001cce088>::Default_packets#handle_privmsg>
+10:06:57 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x00000001cce088>::Default_packets#handle_376>
+10:06:57 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+10:06:57 PM> [DEBUG] -CORE- Registered Command: say [Method: #<Method: #<Module:0x00000001cc34a8>::Default_Commands#handle_say>
+10:06:57 PM> [DEBUG] -CORE- Registered Command: reload [Method: #<Method: #<Module:0x00000001cc34a8>::Default_Commands#handle_reload>
+10:06:57 PM> [INFO] -PluginManager- Loaded Default Plugins by umby24, Version 1.0
+10:06:57 PM> [DEBUG] -CORE- Started parse thread.
+10:06:57 PM> [INFO] -NOTICE- *** Looking up your hostname...
+10:06:57 PM> [INFO] -NOTICE- *** Checking Ident
+10:06:57 PM> [INFO] -NOTICE- *** Found your hostname
+10:07:05 PM> [INFO] -NOTICE- *** No Ident response
+10:07:05 PM> [INFO] -451- You have not registered
+10:07:05 PM> [INFO] -001- Welcome to the EsperNet Internet Relay Chat Network rubybot
+10:07:05 PM> [INFO] -002- Your host is moo.esper.net[moo.esper.net/6667], running version charybdis-3.5.0-dev
+10:07:05 PM> [INFO] -003- This server was created Sun Oct 26 2014 at 09:40:06 UTC
+10:07:05 PM> [INFO] -004- 
+10:07:05 PM> [INFO] -005- 50 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=EsperNet KNOCK :are supported by this server
+10:07:05 PM> [INFO] -005- are supported by this server
+10:07:05 PM> [INFO] -005- 1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,acjorsxz WHOX CLIENTVER=3.0 :are supported by this server
+10:07:05 PM> [INFO] -251- There are 17 users and 8183 invisible on 16 servers
+10:07:05 PM> [INFO] -252- IRC Operators online
+10:07:05 PM> [INFO] -254- channels formed
+10:07:05 PM> [INFO] -255- I have 1340 clients and 1 servers
+10:07:05 PM> [INFO] -265- Current local users 1340, max 1520
+10:07:05 PM> [INFO] -266- Current global users 8200, max 9833
+10:07:05 PM> [INFO] -250- Highest connection count: 1521 (1520 clients) (74560 connections received)
+10:07:05 PM> [INFO] -375- - moo.esper.net Message of the Day -
+10:07:05 PM> [INFO] -372- -             _____
+10:07:05 PM> [INFO] -372- -            < moo >
+10:07:05 PM> [INFO] -372- -             -----
+10:07:05 PM> [INFO] -372- -                    \   ^__^
+10:07:05 PM> [INFO] -372- -                     \  (oo)\_______
+10:07:05 PM> [INFO] -372- -                        (__)\       )\/\
+10:07:05 PM> [INFO] -372- -                            ||----w |
+10:07:05 PM> [INFO] -372- -                            ||     ||
+10:07:05 PM> [INFO] -372- -
+10:07:05 PM> [INFO] -372- -          Host: moo [ irc.esper.net ]
+10:07:05 PM> [INFO] -372- -         Admin: Deltafire
+10:07:05 PM> [INFO] -372- -      Location: Paris, France
+10:07:05 PM> [INFO] -372- -
+10:07:05 PM> [INFO] -372- -                     * TERMS OF SERVICE *
+10:07:05 PM> [INFO] -372- -
+10:07:05 PM> [INFO] -372- - Your use of this network constitutes an agreement to abide
+10:07:05 PM> [INFO] -372- - by the rules presented in the EsperNet charter and consent
+10:07:05 PM> [INFO] -372- - to a port scan, to detect open proxies and otherwise
+10:07:05 PM> [INFO] -372- - compromised systems.           http://esper.net/charter.php
+10:07:05 PM> [INFO] -372- -
+10:07:05 PM> [INFO] -372- - Properly configured bots are permitted, but are required to
+10:07:05 PM> [INFO] -372- - follow the same rules as users. Please refer to our bot
+10:07:05 PM> [INFO] -372- - policy document for more information about configuration
+10:07:05 PM> [INFO] -372- - requirements and suggestions.     http://esper.net/bots.php
+10:07:05 PM> [INFO] -372- -
+10:07:05 PM> [INFO] -372- -                      * HELP CHANNELS *
+10:07:05 PM> [INFO] -372- -
+10:07:05 PM> [INFO] -372- -         #help: General IRC help
+10:07:05 PM> [INFO] -372- -   #dragonweyr: For issues requiring EsperNet staff
+10:07:05 PM> [INFO] -372- -
+10:07:05 PM> [INFO] -372- - Welcome to EsperNet.
+10:07:05 PM> [INFO] -372- -
+10:07:05 PM> [INFO] -MODE- +i
+10:07:05 PM> [INFO] -JOIN- 
+10:07:05 PM> [INFO] -332- A Testing center mainly for SinZBot and Renol, but open to anyone (within reason) | TODO: Command to Display Polling info to chat (i.e. jenkin url), using regex on MC version | PHP master race | https://github.com/SinZ163/NotEnoughMods
+10:07:05 PM> [INFO] -333- 
+10:07:05 PM> [INFO] -353- rubybot Renol +dmod +Lunatrius +helinus|off +NightKev +Serenity @SinZ @Pyker batman|loving +bspkrs Not-c30a +umby24 +sMi +GenPage
+10:07:05 PM> [INFO] -366- End of /NAMES list.
+10:07:11 PM> [INFO] -#test- <umby24> +say hi
+10:07:11 PM> [INFO] -#test- <rubybot> hi
+10:07:15 PM> [INFO] -#test- <umby24> there we go
+10:07:19 PM> [INFO] -#test- <umby24> it was the message splitting
+10:15:50 PM> [INFO] -#test- <umby24> +reload
+10:15:50 PM> [INFO] -#test- <rubybot> Reloading Plugins...
+10:15:50 PM> [DEBUG] -CORE- Registered Packet: PRIVMSG [Method: #<Method: #<Module:0x00000001c28228>::Default_packets#handle_privmsg>
+10:15:50 PM> [DEBUG] -CORE- Registered Packet: 376 [Method: #<Method: #<Module:0x00000001c28228>::Default_packets#handle_376>
+10:15:50 PM> [INFO] -PluginManager- Loaded IRC Packets by umby24, Version 1.0
+10:15:50 PM> [DEBUG] -CORE- Registered Command: say [Method: #<Method: #<Module:0x00000001c147f0>::Default_Commands#handle_say>
+10:15:50 PM> [DEBUG] -CORE- Registered Command: reload [Method: #<Method: #<Module:0x00000001c147f0>::Default_Commands#handle_reload>
+10:15:50 PM> [DEBUG] -CORE- Registered Command: join [Method: #<Method: #<Module:0x00000001c147f0>::Default_Commands#handle_join>
+10:15:50 PM> [DEBUG] -CORE- Registered Command: commands [Method: #<Method: #<Module:0x00000001c147f0>::Default_Commands#handle_commands>
+10:15:50 PM> [INFO] -PluginManager- Loaded Default Plugins by umby24, Version 1.0
+10:15:50 PM> [INFO] -#test- <rubybot> Done.
+10:16:11 PM> [INFO] -#test- <umby24> this should cause an exception:
+10:16:13 PM> [INFO] -#test- <umby24> +commands
+10:16:13 PM> [ERROR] -Command- Error Handling command commands, undefined method `commands' for #<Events:0x00000001cce2e0>
+10:16:13 PM> [DEBUG] -Command- ["Plugins/default_commands.rb:32:in `handle_commands'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:64:in `call'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:64:in `call_command'", "Plugins/default_packets.rb:50:in `handle_privmsg'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:85:in `call'", "/home/unknown/RubymineProjects/Rubybot/lib/events.rb:85:in `call_packet'", "/home/unknown/RubymineProjects/Rubybot/network/irc_network.rb:104:in `parse'", "/home/unknown/RubymineProjects/Rubybot/main.rb:69:in `block in run'"]
+10:16:15 PM> [INFO] -#test- <umby24> yup
+10:16:24 PM> [INFO] -#test- <umby24> +join #sinzationalminecraft
+10:16:24 PM> [INFO] -JOIN- 
+10:16:25 PM> [INFO] -332- Welcome to #SinZationalMinecraft || Platform URL: http://www.technicpack.net/modpack/details/sinzational-minecraft.221928 || Praise gaben for DotA2 custom maps using Lua for scripting || http://reddit.com/r/SinZationalDota
+10:16:25 PM> [INFO] -333- 
+10:16:25 PM> [INFO] -353- rubybot +Renol SinZBot @SinZ @NyanServ Pyker Not-c30a +umby24 GenPage
+10:16:25 PM> [INFO] -366- End of /NAMES list.
