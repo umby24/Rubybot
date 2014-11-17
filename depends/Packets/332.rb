@@ -1,1 +1,0 @@
-$topic[$splits[2]] = $message
