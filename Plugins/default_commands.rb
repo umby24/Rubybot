@@ -3,36 +3,50 @@ class Default_Commands < Plugin
     @name = 'Default Plugins'
     @author = 'umby24'
     @version = 1.0
-    @bot.event.register_command('say', self.method(:handle_say))
-    @bot.event.register_command('reload', self.method(:handle_reload))
-    @bot.event.register_command('join', self.method(:handle_join))
-    @bot.event.register_command('commands', self.method(:handle_commands))
+    @bot.event.register_command('say', self.method(:handle_say), false)
+    @bot.event.register_command('reload', self.method(:handle_reload), false)
+    @bot.event.register_command('join', self.method(:handle_join), false)
+    @bot.event.register_command('commands', self.method(:handle_commands), true)
   end
 
-  def handle_say(name, host, mid, splits, message, raw)
+  def handle_say(host, channel, message, args, guest)
     all_message = message[message.index(' ') + 1, message.length - (message.index(' ') + 1)]
-    @bot.network.send_privmsg(splits[1], all_message)
+    @bot.network.send_privmsg(channel, all_message)
   end
 
-  def handle_reload(name, host, mid, splits, message, raw)
-    @bot.network.send_privmsg(splits[1], 'Reloading Plugins...')
+  def handle_reload(host, channel, message, args, guest)
+    @bot.network.send_privmsg(channel, 'Reloading Plugins...')
     pm = get_plugin_manager
     pm.load_plugins
-    @bot.network.send_privmsg(splits[1], 'Done.')
+    @bot.network.send_privmsg(channel, 'Done.')
   end
 
-  def handle_join(name, host, mid, splits, message, raw)
+  def handle_join(host, channel, message, args, guest)
     all_message = message[message.index(' ') + 1, message.length - (message.index(' ') + 1)]
     @bot.channels << all_message.strip
     @bot.network.send_raw("JOIN #{all_message.strip}")
     @bot.sets.save_all
   end
 
-  def handle_commands(name, host, mid, splits, message, raw)
-    cmdlisting = @bot.event.commands.keys.sort().join(', ')
-    @bot.network.send_notice(name, 'Ruby IRC Bot version ' + @bot.version + ' by Umby24')
-    @bot.network.send_notice(name, 'Total Commands: ' + cmdlisting.length)
-    @bot.network.send_notice(name, cmdlisting)
+  def handle_commands(host, channel, message, args, guest)
+    if host.include?('!')
+      name = host[0, host.index('!')]
+    else
+      name = host
+    end
+
+    @bot.network.send_notice(name, 'Ruby IRC Bot version ' + @bot.version.to_s + ' by Umby24')
+
+    if guest
+      cmd_listing = @bot.event.gcommand.keys.sort().join(', ')
+      @bot.network.send_notice(name, 'You are a guest.')
+    else
+      cmd_listing = @bot.event.command.keys.sort().join(', ')
+      @bot.network.send_notice(name, 'You are an admin.')
+    end
+
+    @bot.network.send_notice(name, cmd_listing)
+
   end
 end
 

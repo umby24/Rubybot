@@ -1,10 +1,11 @@
 class Events
-  attr_reader :command
+  attr_reader :command, :gcommand
 
   def initialize(bot)
     @msg = Hash.new
     @read = Hash.new
     @command = Hash.new
+    @gcommand = Hash.new
     @join = Hash.new
     @packet = Hash.new
     @bot = bot
@@ -21,9 +22,12 @@ class Events
     @bot.log.debug("Registered Read Event: #{name} [Method: #{method}")
   end
 
-  def register_command(cmd, method)
+  def register_command(cmd, method, guest)
     @command[cmd] = method
-    @bot.log.debug("Registered Command: #{cmd} [Method: #{method}")
+    if guest
+      @gcommand[cmd] = method
+    end
+    @bot.log.debug("Registered Command: #{cmd} [Method: #{method.name}")
   end
 
   def register_library(library)
@@ -56,14 +60,18 @@ class Events
 
   end
 
-  def call_command(name, command, host, mid, splits, message, raw)
-    method = @command.fetch(command, nil)
-    #TODO: Permissions
+  def call_command(command, host, channel, message, args, guest)
+    if guest
+      method = @gcommand.fetch command, nil
+    else
+      method = @command.fetch(command, nil)
+    end
+
     if method.nil?
       false
     else
       begin
-        method.call(name, host, mid, splits, message, raw)
+        method.call(host, channel, message, args, guest)
       rescue Exception => e
         @bot.log.progname = 'Command'
         @bot.log.error("Error Handling command #{command}, #{e.message}")

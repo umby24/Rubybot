@@ -30,10 +30,8 @@ class IRC_Network
   def send_privmsg(dest, msg)
     messages = split_message(msg)
     @bot.log.progname = dest
-    puts messages
-    puts msg
+
     messages.each do |z|
-      puts z
       next unless z != nil
       send_raw("PRIVMSG #{dest} :#{z}")
       @bot.log.info("<#{@bot.bot_name}> #{z}")
@@ -66,17 +64,14 @@ class IRC_Network
   end
 
   def parse
-    if reloaded
+    if @reloaded
       send_msg('Reloaded')
-      reloaded = false
+      @reloaded = false
     end
 
-    while !reloaded
+    until @reloaded
       raw = read_line
       @bot.event.call_read
-
-      host = ''
-      mid = ''
       message = ''
 
       if raw[0, 1] == ':'
@@ -129,7 +124,7 @@ class IRC_Network
         loopback = false
       end
       if loopback
-        index = string[0, 400].rindex(" ")
+        index = string[0, 400].rindex(' ')
         temptext = string[index + 1, string.length - (index + 1)]
         string = string[0, index]
       end
@@ -138,7 +133,7 @@ class IRC_Network
         string = temptext
       end
       counter += 1
-    end while (loopback == true)
+    end while (loopback)
     return splits
   end
 end

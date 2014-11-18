@@ -42,6 +42,12 @@ def load_bot_settings(bot, file)
     file.write('ip', bot.ip)
   end
 
+  file.select_group('Admins')
+
+  file.settings_hash['Admins'].each_key do |z|
+    bot.admins << z
+  end
+
   file.save_file
 end
 
@@ -49,12 +55,19 @@ end
 class Bot
   attr_accessor :log, :bot_name, :channels, :ip, :port, :ident, :real_name
   attr_accessor :ns_pass, :prefix, :event, :version, :quit, :sets, :network
+  attr_accessor :authed, :users, :topic, :admins
 
   def initialize
+    @authed = []
+    @users = Hash.new
+    @topic = Hash.new
+    @admins = []
+
     setup_logger
     load_settings
     @event = Events.new(self)
     @version = 5.0
+
     @pm = get_plugin_manager
     @pm.associate_bot(self)
     @pm.load_plugins
@@ -65,8 +78,8 @@ class Bot
     @quit = false
     @network.connect
 
-    while !@quit
-      @network_thread = Thread.new{@network.parse}
+    until @quit
+      @network_thread = Thread.new { @network.parse }
       @log.debug('Started parse thread.')
       @network_thread.join
     end
