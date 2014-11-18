@@ -64,12 +64,7 @@ class IRC_Network
   end
 
   def parse
-    if @reloaded
-      send_msg('Reloaded')
-      @reloaded = false
-    end
-
-    until @reloaded
+    until @bot.quit
       raw = read_line
       @bot.event.call_read
       message = ''

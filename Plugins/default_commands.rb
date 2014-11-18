@@ -7,6 +7,10 @@ class Default_Commands < Plugin
     @bot.event.register_command('reload', self.method(:handle_reload), false)
     @bot.event.register_command('join', self.method(:handle_join), false)
     @bot.event.register_command('commands', self.method(:handle_commands), true)
+    @bot.event.register_command('part', self.method(:handle_part), false)
+    @bot.event.register_command('plugins', self.method(:handle_plugins), true)
+    @bot.event.register_command('time', self.method(:handle_time), true)
+    @bot.event.register_command('channels', self.method(:handle_channels), true)
   end
 
   def handle_say(host, channel, message, args, guest)
@@ -26,6 +30,15 @@ class Default_Commands < Plugin
     @bot.channels << all_message.strip
     @bot.network.send_raw("JOIN #{all_message.strip}")
     @bot.sets.save_all
+  end
+
+  def handle_part(host, channel, message, args, guest)
+    @bot.network.send_raw("PART #{channel}")
+    @bot.channels.delete(channel)
+
+    if @bot.channels.length == 0
+      @bot.quit = true
+    end
   end
 
   def handle_commands(host, channel, message, args, guest)
@@ -48,6 +61,22 @@ class Default_Commands < Plugin
     @bot.network.send_notice(name, cmd_listing)
 
   end
+
+  def handle_plugins(host, channel, message, args, guest)
+    pm = get_plugin_manager
+    @bot.network.send_privmsg(channel, pm.plugins.keys.join(', '))
+  end
+
+  def handle_time(host, channel, message, args, guest)
+    time = Time.new
+    @bot.network.send_privmsg(channel, time.strftime('%I:%M:%S %p'))
+  end
+
+  def handle_channels(host, channel, message, args, guest)
+    @bot.network.send_privmsg(channel, @bot.channels.join(', '))
+  end
+
+
 end
 
 dc = Default_Commands.new
