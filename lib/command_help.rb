@@ -26,7 +26,7 @@ class Help
   end
 
   def add_sub_command(subcommand)
-    @subcommands[subcommand] = Hash.new()
+    @subcommands[subcommand] = Hash.new
     @subcommands[subcommand]['arguments'] = {}
     @subcommands[subcommand]['arguments']['args'] = []
     @subcommands[subcommand]['arguments']['desc'] = []
@@ -171,7 +171,7 @@ class Help
       return
     end
 
-    if !@subcommands[subcommand]['arguments']['args'].include?(arg)
+    unless @subcommands[subcommand]['arguments']['args'].include?(arg)
       @bot.network.send_notice(sender, "#{arg} is not an argument of #{subcommand}.")
       return
     end

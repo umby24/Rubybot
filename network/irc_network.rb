@@ -1,22 +1,26 @@
 require 'socket'
-#require_relative 'default_packets'
 
 class IRC_Network
-  attr_accessor :reloaded, :current
+  attr_accessor :socket, :ip, :port, :bot_name, :channels, :ident, :real_name, :ns_pass
 
   # @param [Bot] bot
   def initialize(bot)
     @bot = bot
-    @current = @bot.channels[0]
-    @reloaded = false
+    @bot_name = ''
+    @ident = 'ruby'
+    @real_name = 'rubybot'
+    @channels = Hash.new
+    @ip = '127.0.0.1'
+    @port = 2
     @timer = 0
   end
 
   def connect
-    @socket = TCPSocket.open(@bot.ip, @bot.port)
-    send_raw("NICK #{@bot.bot_name}")
-    send_raw("USER #{@bot.ident} ruby ruby :#{@bot.real_name}")
-    send_raw("MODE #{@bot.bot_name} +B-x")
+    @socket = TCPSocket.open(@ip, @port) # Create the socket
+
+    send_raw("NICK #{@bot_name}") # Register with the server
+    send_raw("USER #{@ident} ruby ruby :#{@real_name}")
+    send_raw("MODE #{@bot_name} +B-x")
   end
 
   def read_line
@@ -34,7 +38,7 @@ class IRC_Network
     messages.each do |z|
       next unless z != nil
       send_raw("PRIVMSG #{dest} :#{z}")
-      @bot.log.info("<#{@bot.bot_name}> #{z}")
+      @bot.log.info("<#{@bot_name}> #{z}")
     end
 
     @bot.log.progname = 'CORE'
@@ -47,26 +51,22 @@ class IRC_Network
     messages.each do |z|
       next unless z != nil
       send_raw("NOTICE #{dest} :#{z}")
-      @bot.log.info("-#{@bot.bot_name}- #{z}")
+      @bot.log.info("-#{@bot_name}- #{z}")
     end
 
     @bot.log.progname = 'CORE'
   end
 
   def send_all(msg)
-    @bot.channels.each do |z|
+    @channels.each do |z|
       send_privmsg(z, msg)
     end
-  end
-
-  def send_msg(msg)
-    send_privmsg(@current, msg)
   end
 
   def parse
     until @bot.quit
       raw = read_line
-      @bot.event.call_read
+      @bot.event.call_read(raw)
       message = ''
 
       if raw[0, 1] == ':'
@@ -101,6 +101,10 @@ class IRC_Network
     end
   end
 
+  def timeout
+
+  end
+
   def to_s
     'IRC Handler Class'
   end
@@ -108,27 +112,22 @@ class IRC_Network
   private
 
   def split_message(string)
-    loopback = false
+    if string.length < 400
+      return [string]
+    end
+
     splits = []
     counter = 0
 
-    begin
-      if string.length > 400
-        loopback = true
-      else
-        loopback = false
-      end
-      if loopback
-        index = string[0, 400].rindex(' ')
-        temptext = string[index + 1, string.length - (index + 1)]
-        string = string[0, index]
-      end
+    until string.length < 400
+      index = string[0, 400].rindex(' ')
+      temp_text = string[index + 1, string.length - (index + 1)]
+      string = string[0, index]
       splits[counter] = string
-      if loopback
-        string = temptext
-      end
+      string = temp_text
       counter += 1
-    end while (loopback)
-    return splits
+    end
+
+    splits
   end
 end

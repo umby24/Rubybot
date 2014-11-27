@@ -26,6 +26,8 @@ class Default_packets < Plugin
       name = host
     end
 
+    @bot.event.call_message(name, splits[1], message)
+
     if message[0, 1] == 1.chr # CTCP
       if message[1, message.length - 2] == 'VERSION'
         #CTCP Version
@@ -37,8 +39,8 @@ class Default_packets < Plugin
 
       if message[0, 5] == 1.chr + 'PING'
         #Attempt at handling CTCP Pings.. never worked well.
-        pingid = message[5, message.length - 6]
-        @bot.network.send_notice(name, 1.chr + 'PING' + pingid + 1.chr)
+        pinged = message[5, message.length - 6]
+        @bot.network.send_notice(name, 1.chr + 'PING' + pinged + 1.chr)
 
         @bot.log.progname = 'PING'
         @bot.log.info('Handled CTCP PING')
@@ -73,15 +75,13 @@ class Default_packets < Plugin
   end
 
   def handle_376(host, mid, splits, message, raw)
-    @bot.channels.each do |z|
+    @bot.network.channels.each_key do |z|
       @bot.network.send_raw("JOIN #{z}")
     end
 
     if !@bot.ns_pass.nil? and @bot.ns_pass != ''
       @bot.network.send_raw("NICKSERV IDENTIFY #{@bot.ns_pass}")
     end
-
-    #TODO: Connected events --
   end
 
   def handle_307(host, mid, splits, message, raw)
@@ -97,8 +97,15 @@ class Default_packets < Plugin
   end
 
   def handle_353(host, mid, splits, message, raw)
+    if @bot.network.channels.fetch(splits[3], nil) == nil
+      @bot.network.channels[splits[3]] = Channel.new(splits[3])
+    end
+
+    @bot.network.channels[splits[3]].set_users(message)
+    @bot.event.call_join(splits[3])
+
     arr = message.split(' ', 120)
-    @bot.users[splits[3]] = arr
+
     arr.each do |z|
       if z.include?('~') || z.include?('@') || z.include?('+')
         z = z.gsub('~', '')
@@ -109,15 +116,17 @@ class Default_packets < Plugin
         unless @bot.authed.include?(z)
           @bot.authed << z
         end
+
         next
       end
+
       z = z.gsub(' ', '')
       @bot.network.send_raw("whois #{z}")
     end
   end
 
   def handle_332(host, mid, splits, message, raw)
-    @bot.topic[splits[2]] = message
+    @bot.network.channels[splits[2]].topic = message
     @bot.log.progname = splits[2]
     @bot.log.info("Topic updated to #{message} by #{host}")
     @bot.log.progname = 'CORE'
@@ -125,8 +134,8 @@ class Default_packets < Plugin
 
   def handle_433(host, mid, splits, message, raw)
     @bot.bot_name += '_'
-    @bot.network.send_raw("USER #{@bot.ident} ruby ruby :#{@bot.real_name}")
-    @bot.network.send_raw("MODE #{@bot.bot_name} +B-x")
+    @bot.network.send_raw("USER #{@bot.network.ident} ruby ruby :#{@bot.network.real_name}")
+    @bot.network.send_raw("MODE #{@bot.network.bot_name} +B-x")
     @bot.log.warn('Username in use, appended a _.')
   end
 
@@ -140,6 +149,7 @@ class Default_packets < Plugin
     @bot.log.progname = 'NICK'
     @bot.log.info("#{name} has changed their nick to #{message}")
     @bot.log.progname = 'CORE'
+
     @bot.network.send_raw("WHOIS #{message}")
   end
 
@@ -164,7 +174,7 @@ class Default_packets < Plugin
   end
 
   def handle_topic(host, mid, splits, message, raw)
-    @bot.topic[splits[1]] = message
+    @bot.network.channels[splits[1]].topic = message
     @bot.log.progname = splits[1]
     @bot.log.info("Topic updated to #{message} by #{host}")
     @bot.log.progname = 'CORE'
