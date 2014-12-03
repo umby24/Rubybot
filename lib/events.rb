@@ -58,12 +58,12 @@ class Events
 
   def call_message(name, channel, message)
     @msg.each do |z,f|
-      if z.nil?
+      if f.nil?
         next
       end
 
       begin
-        z.call(name, channel, message)
+        f.call(name, channel, message)
       rescue Exception => e
         @bot.log.progname = 'MessageEvent'
         @bot.log.error("Error Handling Message Event #{z}, #{e.message}")

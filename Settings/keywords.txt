@@ -1,0 +1,8 @@
+[pre]
+hi = inter_hello
+hello = inter_hello
+bye = inter_bye
+goodbye = inter_bye
+hey = inter_hey
+? = inter_question
+commands = inter_commands

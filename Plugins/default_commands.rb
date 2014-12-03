@@ -11,6 +11,7 @@ class Default_Commands < Plugin
     @bot.event.register_command('admins', self.method(:handle_admins), false)
     @bot.event.register_command('channels', self.method(:handle_channels), true)
     @bot.event.register_command('commands', self.method(:handle_commands), true)
+    @bot.event.register_command('eval', self.method(:handle_eval), false)
     @bot.event.register_command('help', self.method(:handle_help), true)
     @bot.event.register_command('join', self.method(:handle_join), false)
     @bot.event.register_command('load', self.method(:handle_load), false)
@@ -81,6 +82,22 @@ class Default_Commands < Plugin
 
   end
 
+  def handle_eval(host, channel, message, args, guest)
+    name = host[0, host.index('!')]
+
+    unless name == "umby24"
+      return
+    end
+
+    all_message = message[message.index(' ') + 1, message.length - (message.index(' ') + 1)]
+
+    begin
+      @bot.network.send_privmsg(channel, eval(all_message).to_s)
+    rescue Exception => e
+      @bot.network.send_privmsg(channel, "Error #{e.message}")
+    end
+  end
+
   def handle_help(host, channel, message, args, guest)
     if args[1].nil?
       @bot.network.send_notice(host[0, host.index('!')], "No arguments provided. For a commands listing see #{@bot.prefix}commands")
@@ -123,14 +140,14 @@ class Default_Commands < Plugin
   end
 
   def handle_load(host, channel, message, args, guest)
-    unless File.exist?('plugins/' + args[1])
+    unless File.exist?('Plugins/' + args[1])
       @bot.network.send_notice(host[0, host.index('!')], 'Plugin not found.')
       return
     end
 
-    @bot.sets.settings_files[0]["Plugins"][args[1]] = 'nothing'
-    @bot.pm.load_plugin('plugins/' + args[1])
+    @bot.sets.settings_files[0].settings_hash["Plugins"][args[1]] = 'nothing'
     @bot.sets.save_all
+    @bot.reload
     @bot.network.send_privmsg(channel, 'Plugin loaded.')
   end
 

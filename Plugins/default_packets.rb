@@ -133,9 +133,10 @@ class Default_packets < Plugin
   end
 
   def handle_433(host, mid, splits, message, raw)
-    @bot.bot_name += '_'
-    @bot.network.send_raw("USER #{@bot.network.ident} ruby ruby :#{@bot.network.real_name}")
+    @bot.network.bot_name += '_'
     @bot.network.send_raw("MODE #{@bot.network.bot_name} +B-x")
+    @bot.network.send_raw("USER #{@bot.network.ident} ruby ruby :#{@bot.network.real_name}")
+
     @bot.log.warn('Username in use, appended a _.')
   end
 
