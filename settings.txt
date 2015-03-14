@@ -1,9 +1,0 @@
-username=Rubybot
-ident=Ruby
-realname=Ruby
-server=irc.esper.net
-server_pass=
-port=6667
-channel=#ChannelHere, #ChannelTwo, 
-ns_pass=
-prefix=+

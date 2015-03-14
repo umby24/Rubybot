@@ -6,7 +6,9 @@
 .project
 .metadata
 bin/
+Logs/
 tmp/
+.idea/
 *.tmp
 *.bak
 *.swp
