@@ -55,6 +55,8 @@ class Title < Plugin
         title = content[place1,length]
         title = CGI.unescape_html(title)
         title = title.strip()
+        title = title.gsub('\r', '')
+        title = title.gsub('\n', '')
 
         return "[Title: #{title}]"
       end

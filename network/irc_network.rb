@@ -102,7 +102,26 @@ class IRC_Network
   end
 
   def timeout
+    until @bot.quit
+      sleep(1)
+      @timer += 1
 
+      begin
+        if @timer > 500
+          @bot.quit = 1
+
+          unless @socket.closed?
+            @socket.close
+          end
+
+          system('ruby main.rb')
+          puts 'Recovered.'
+        end
+      rescue Exception => e
+        @bot.log.error("Timeout error #{e.message}")
+        @bot.log.debug(e.backtrace)
+      end
+    end
   end
 
   def to_s

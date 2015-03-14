@@ -96,9 +96,14 @@ class Bot
 
     until @quit
       @network_thread = Thread.new { @network.parse }
+      @network_timeout = Thread.new { @network.timeout }
+
       @log.debug('Started parse thread.')
       @network_thread.join
+      @network_timeout.join
     end
+
+    puts 'Bot ended'
   end
 
   def to_s
@@ -125,7 +130,7 @@ class Bot
     end
     log_2.progname = 'CORE'
 
-    @log = MultiLogger.new(:level => Logger::DEBUG, :loggers => log_1, :progname => 'CORE')
+    @log = MultiLogger.new(:level => Logger::INFO, :loggers => log_1, :progname => 'CORE')
     @log.add_logger(log_2)
 
     @log.info('Created logger.')
