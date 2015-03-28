@@ -130,17 +130,17 @@ class Events
     end
   end
 
-  def call_packet(packet, host, mid, splits, message, raw)
-    method = @packet.fetch(packet, nil)
+  def call_packet(prefix, command, args, raw)
+    method = @packet.fetch(command, nil)
 
     if method.nil?
       false
     else
       begin
-        method.call(host, mid, splits, message, raw)
+        method.call(prefix, command, args, raw)
       rescue Exception => e
         @bot.log.progname = 'Packet'
-        @bot.log.error("Error Handling packet #{packet}, #{e.message}")
+        @bot.log.error("Error Handling packet #{command}, #{e.message}")
         @bot.log.debug(e.backtrace)
         @bot.log.progname = 'CORE'
       end

@@ -67,36 +67,31 @@ class IRC_Network
     until @bot.quit
       raw = read_line
       @bot.event.call_read(raw)
-      message = ''
+      prefix = ''
 
+      #[prefix (optional)] [command] [arguments]
       if raw[0, 1] == ':'
-        host = raw[1, raw.index(' ') - 1]
+        prefix = raw[1, raw.index(' ') - 1]
+        args = raw[raw.index(' ') + 1, raw.length - (raw.index(' ') - 1)].split(' ', 15)
+        command = args[0]
+        args = args[1, args.length - 1]
       else
-        host = raw[0, raw.index(' ')]
+        command = raw[0, raw.index(' ')]
+        args = raw[raw.index(' ') + 1, raw.length - (raw.index(' ') - 1)].split(' ', 15)
       end
 
-      mid = raw[raw.index(' ') + 1, raw.length - (raw.index(' ') - 1)]
-
-      if mid.include?(':')
-        message = mid[mid.index(':') + 1, mid.length - (mid.index(':') + 1)]
-      end
-
-      if host == 'PING' # Respond to IRC Server pings for aliveness.
+      if command == 'PING' # Respond to IRC Server pings for aliveness.
         @timer = 0
-        send_raw("PONG #{mid}")
+        send_raw("PONG #{args[0]}")
         next
       end
 
-      packet = mid[0, mid.index(' ')]
-      splits = mid.split(' ', 15)
-      message = message.strip
-
-      if @bot.event.call_packet(packet, host, mid, splits, message, raw)
+      if @bot.event.call_packet(prefix, command, args, raw)
         next
       end
 
-      @bot.log.progname = packet
-      @bot.log.info(message)
+      @bot.log.progname = command
+      @bot.log.info(args.join(' '))
       @bot.log.progname = 'CORE'
     end
   end

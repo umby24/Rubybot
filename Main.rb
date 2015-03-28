@@ -71,7 +71,7 @@ class Bot
     setup_logger
     load_settings
     @event = Events.new(self)
-    @version = 5.0
+    @version = 5.1
 
     @pm = get_plugin_manager
     @pm.associate_bot(self)
@@ -80,8 +80,8 @@ class Bot
 
   def reload
     load 'lib/command_help.rb'
-
     load 'lib/events.rb'
+
     @event = Events.new(self)
 
     load 'lib/plugins.rb'

@@ -19,14 +19,16 @@ class Default_packets < Plugin
     @bot.event.register_packet('JOIN', self.method(:handle_join))
   end
 
-  def handle_privmsg(host, mid, splits, message, raw)
-    if host.include?('!')
-      name = host[0, host.index('!')]
+  def handle_privmsg(prefix, command, args, raw)
+    if prefix.include?('!')
+      name = prefix[0, prefix.index('!')]
     else
-      name = host
+      name = prefix
     end
 
-    @bot.event.call_message(name, splits[1], message)
+    message = args[1, args.length - 1].join(' ')
+    message = message[1, message.length - 1]
+    @bot.event.call_message(name, args[0], message)
 
     if message[0, 1] == 1.chr # CTCP
       if message[1, message.length - 2] == 'VERSION'
@@ -50,7 +52,7 @@ class Default_packets < Plugin
       return
     end
 
-    @bot.log.progname = splits[1]
+    @bot.log.progname = args[0]
     @bot.log.info("<#{name}> #{message}")
     @bot.log.progname = 'CORE'
 
@@ -60,49 +62,52 @@ class Default_packets < Plugin
       end
 
       guest = false
-
+      puts @bot.admins
       unless @bot.admins.include?(name) and @bot.authed.include?(name)
         guest = true
       end
 
       cmd = message[1, message.index(' ') - 1].downcase.gsub(' ', '')
 
-      unless @bot.event.call_command(cmd, host, splits[1], message, message.split(' ', 25), guest)
+      unless @bot.event.call_command(cmd, prefix, args[0], message, message.split(' ', 25), guest)
         @bot.network.send_notice(name, 'Command not found.')
       end
 
     end
   end
 
-  def handle_376(host, mid, splits, message, raw)
+  def handle_376(prefix, command, args, raw)
     @bot.network.channels.each_key do |z|
       @bot.network.send_raw("JOIN #{z}")
     end
 
-    if !@bot.ns_pass.nil? and @bot.ns_pass != ''
-      @bot.network.send_raw("NICKSERV IDENTIFY #{@bot.ns_pass}")
+    if !@bot.ns_pass.nil? and @bot.network.ns_pass != ''
+      @bot.network.send_raw("NICKSERV IDENTIFY #{@bot.network.ns_pass}")
     end
   end
 
-  def handle_307(host, mid, splits, message, raw)
-    unless @bot.authed.include?(splits[2])
-      @bot.authed << splits[2]
+  def handle_307(prefix, command, args, raw)
+    unless @bot.authed.include?(args[1])
+      @bot.authed << args[1]
     end
   end
 
-  def handle_330(host, mid, splits, message, raw)
-    unless @bot.authed.include?(splits[2])
-      @bot.authed << splits[2]
+  def handle_330(prefix, command, args, raw)
+    unless @bot.authed.include?(args[1])
+      @bot.authed << args[1]
     end
   end
 
-  def handle_353(host, mid, splits, message, raw)
-    if @bot.network.channels.fetch(splits[3], nil) == nil
-      @bot.network.channels[splits[3]] = Channel.new(splits[3])
+  def handle_353(prefix, command, args, raw)
+    if @bot.network.channels.fetch(args[2], nil) == nil
+      @bot.network.channels[args[2]] = Channel.new(args[2])
     end
 
-    @bot.network.channels[splits[3]].set_users(message)
-    @bot.event.call_join(splits[3])
+    message = args[1, args.length - 1].join(' ')
+    message = message[1, message.length - 1]
+
+    @bot.network.channels[args[2]].set_users(message)
+    @bot.event.call_join(args[2])
 
     arr = message.split(' ', 120)
 
@@ -125,14 +130,16 @@ class Default_packets < Plugin
     end
   end
 
-  def handle_332(host, mid, splits, message, raw)
-    @bot.network.channels[splits[2]].topic = message
-    @bot.log.progname = splits[2]
-    @bot.log.info("Topic updated to #{message} by #{host}")
+  def handle_332(prefix, command, args, raw)
+    message = args[1, args.length - 1].join(' ')
+    message = message[1, message.length - 1]
+    @bot.network.channels[args[1]].topic = message
+    @bot.log.progname = args[1]
+    @bot.log.info("Topic updated to #{message} by #{prefix}")
     @bot.log.progname = 'CORE'
   end
 
-  def handle_433(host, mid, splits, message, raw)
+  def handle_433(prefix, command, args, raw)
     @bot.network.bot_name += '_'
     @bot.network.send_raw("MODE #{@bot.network.bot_name} +B-x")
     @bot.network.send_raw("USER #{@bot.network.ident} ruby ruby :#{@bot.network.real_name}")
@@ -140,12 +147,15 @@ class Default_packets < Plugin
     @bot.log.warn('Username in use, appended a _.')
   end
 
-  def handle_nick(host, mid, splits, message, raw)
-    if host.include?('!')
-      name = host[0, host.index('!')]
+  def handle_nick(prefix, command, args, raw)
+    if prefix.include?('!')
+      name = prefix[0, prefix.index('!')]
     else
-      name = host
+      name = prefix
     end
+
+    message = args[1, args.length - 1].join(' ')
+    message = message[1, message.length - 1]
 
     @bot.log.progname = 'NICK'
     @bot.log.info("#{name} has changed their nick to #{message}")
@@ -154,38 +164,50 @@ class Default_packets < Plugin
     @bot.network.send_raw("WHOIS #{message}")
   end
 
-  def handle_notice(host, mid, splits, message, raw)
+  def handle_notice(prefix, command, args, raw)
+    message = args[1, args.length - 1].join(' ')
+    message = message[1, message.length - 1]
+
     @bot.log.progname = 'NOTICE'
-    @bot.log.info("-#{host}- #{message}")
+    @bot.log.info("-#{prefix}- #{message}")
     @bot.log.progname = 'CORE'
   end
 
-  def handle_part(host, mid, splits, message, raw)
-    @bot.log.progname = splits[1]
-    @bot.log.info("#{host} left. (#{message})")
+  def handle_part(prefix, command, args, raw)
+    message = args[1, args.length - 1].join(' ')
+    message = message[1, message.length - 1]
+
+    @bot.log.progname = args[0]
+    @bot.log.info("#{prefix} left. (#{message})")
     @bot.log.progname = 'CORE'
-    @bot.authed.delete(host[0, host.index('!')])
+    @bot.authed.delete(prefix[0, prefix.index('!')])
   end
 
-  def handle_quit(host, mid, splits, message, raw)
-    @bot.log.progname = splits[1]
-    @bot.log.info("#{host} quit. (#{message})")
+  def handle_quit(prefix, command, args, raw)
+    message = args[1, args.length - 1].join(' ')
+    message = message[1, message.length - 1]
+
+    @bot.log.progname = args[0]
+    @bot.log.info("#{prefix} quit. (#{message})")
     @bot.log.progname = 'CORE'
-    @bot.authed.delete(host[0, host.index('!')])
+    @bot.authed.delete(prefix[0, prefix.index('!')])
   end
 
-  def handle_topic(host, mid, splits, message, raw)
-    @bot.network.channels[splits[1]].topic = message
-    @bot.log.progname = splits[1]
-    @bot.log.info("Topic updated to #{message} by #{host}")
+  def handle_topic(prefix, command, args, raw)
+    message = args[1, args.length - 1].join(' ')
+    message = message[1, message.length - 1]
+
+    @bot.network.channels[args[0]].topic = message
+    @bot.log.progname = args[0]
+    @bot.log.info("Topic updated to #{message} by #{prefix}")
     @bot.log.progname = 'CORE'
   end
 
-  def handle_join(host, mid, splits, message, raw)
-    @bot.log.progname = splits[1]
-    @bot.log.info("#{host[0, host.index('!')]} (#{host}) joined.")
+  def handle_join(prefix, command, args, raw)
+    @bot.log.progname = args[0]
+    @bot.log.info("#{prefix[0, prefix.index('!')]} (#{prefix}) joined.")
     @bot.log.progname = 'CORE'
-    @bot.network.send_raw("WHOIS #{host[0, host.index('!')]}")
+    @bot.network.send_raw("WHOIS #{prefix[0, prefix.index('!')]}")
   end
 end
 
