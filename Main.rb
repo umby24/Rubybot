@@ -60,7 +60,7 @@ end
 
 # Main class for the IRC Bot
 class Bot
-  attr_accessor :log, :event, :version, :quit, :sets, :network, :prefix, :authed, :admins
+  attr_accessor :log, :event, :version, :quit, :sets, :network, :prefix, :authed, :admins, :start_time
 
   def initialize
     @authed = []
@@ -72,7 +72,7 @@ class Bot
     load_settings
     @event = Events.new(self)
     @version = 5.1
-
+    @start_time = Time.now
     @pm = get_plugin_manager
     @pm.associate_bot(self)
     @pm.load_plugins

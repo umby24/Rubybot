@@ -131,8 +131,16 @@ class Interaction < Plugin
     @bot.network.send_privmsg(channel, "Bye #{name}, I'll miss you :'(")
   end
 
+  def inter_fuck(bot, name, channel, message)
+    @bot.network.send_privmsg(channel, "See you in bed then, #{name}")
+  end
+
   def inter_hey(bot, name, channel, message)
     @bot.network.send_privmsg(channel, '.. is for horses')
+  end
+  
+  def inter_love(bot, name, channel, message)
+    @bot.network.send_privmsg(channel, "#{name} <3")
   end
 
   def inter_question(bot, name, channel, message)

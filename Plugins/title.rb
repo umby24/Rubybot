@@ -53,12 +53,9 @@ class Title < Plugin
         length -= 7
         place1 += 7
         title = content[place1,length]
-        title = CGI.unescape_html(title)
-        title = title.strip()
-        title = title.gsub('\r', '')
-        title = title.gsub('\n', '')
-
-        return "[Title: #{title}]"
+        title = CGI.unescape_html(title).strip().gsub("\r",'').gsub("\n",'')
+        title = title.gsub(/\s+/, ' ')
+	return "[Title: #{title}]"
       end
     rescue Exception => e
       puts "Error: #{e.message} #{url}"

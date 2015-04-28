@@ -6,3 +6,6 @@ goodbye = inter_bye
 hey = inter_hey
 ? = inter_question
 commands = inter_commands
+fuck = inter_fuck
+[post]
+<3 = inter_love
