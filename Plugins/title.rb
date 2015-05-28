@@ -2,7 +2,8 @@ class Title < Plugin
   def plugin_init
     @name = 'Title Plugin'
     @author = 'umby24'
-    @version = 1.0
+    @version = 1.1
+
     @bot.event.register_library('openssl')
     @bot.event.register_library('cgi')
     @bot.event.register_library('open-uri')
@@ -10,7 +11,7 @@ class Title < Plugin
   end
 
   def handle_message(name, channel, message)
-    if message.include?('http://') || message.include?('https://')
+    if message.include?('http://') || message.include?('https://') and message.include?('/watch?v=') == false
       message += ' '
 
       url = message.index('http://')

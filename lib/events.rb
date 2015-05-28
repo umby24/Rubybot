@@ -74,7 +74,7 @@ class Events
   end
 
   def call_read(string)
-    @read.each do |z,f|
+    @read.each do |z, _|
       if z.nil?
         next
       end
@@ -97,24 +97,22 @@ class Events
       method = @command.fetch(command, nil)
     end
 
-    if method.nil?
-      false
-    else
-      begin
-        result = method.call(host, channel, message, args, guest)
-        true
-      rescue Exception => e
-        @bot.log.progname = 'Command'
-        @bot.log.error("Error Handling command #{command}, #{e.message}")
-        @bot.log.debug(e.backtrace)
-        @bot.log.progname = 'CORE'
-        @bot.network.send_privmsg(channel, 'There was an error handling this request.')
-      end
-    end
+    method.nil? ?
+        false :
+        begin
+          method.call(host, channel, message, args, guest)
+          true
+        rescue Exception => e
+          @bot.log.progname = 'Command'
+          @bot.log.error("Error Handling command #{command}, #{e.message}")
+          @bot.log.debug(e.backtrace)
+          @bot.log.progname = 'CORE'
+          @bot.network.send_privmsg(channel, 'There was an error handling this request.')
+        end
   end
 
   def call_join(channel)
-    @join.each do |z,f|
+    @join.each do |z, _|
       if z.nil?
         next
       end

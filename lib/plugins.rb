@@ -24,7 +24,7 @@ require 'singleton'
 # Plugins SHOULD include a 'plugin_init' method.
 
 def get_plugin_manager
-  return PluginManager.instance
+  PluginManager.instance
 end
 
 class Plugin
@@ -33,9 +33,9 @@ class Plugin
   def initialize
     @manager = get_plugin_manager
     @bot = @manager.bot
-    @name = "Unknown"
+    @name = 'Unknown'
     @version = 0.0
-    @author = "Unknown"
+    @author = 'Unknown'
 
     if self.respond_to?('plugin_init')
       plugin_init
@@ -53,7 +53,7 @@ class PluginManager
   def initialize
     @plugins = Hash.new
 
-    if !File.directory?('Plugins')
+    unless File.directory?('Plugins')
       Dir.mkdir('Plugins')
     end
   end
@@ -63,7 +63,7 @@ class PluginManager
   end
 
   def register_plugin(plugin_class)
-    raise TypeError "Plugin does not inherit plugin class" unless plugin_class.kind_of?(Plugin)
+    raise TypeError 'Plugin does not inherit plugin class' unless plugin_class.kind_of?(Plugin)
     return unless plugin_class.name != 'Unknown' and plugin_class.author != 'Unknown' and plugin_class.version != 0.0
 
     @plugins[plugin_class.name] = plugin_class
@@ -76,7 +76,7 @@ class PluginManager
     sets = @bot.sets.settings_files[0]
     sets.select_group('Plugins')
 
-    sets.settings_hash['Plugins'].each do |k,v|
+    sets.settings_hash['Plugins'].each do |k, _|
       load_plugin(File.join('Plugins', k))
     end
   end

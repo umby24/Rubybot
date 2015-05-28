@@ -132,7 +132,23 @@ class Interaction < Plugin
   end
 
   def inter_fuck(bot, name, channel, message)
-    @bot.network.send_privmsg(channel, "See you in bed then, #{name}")
+    splits = message.split(' ', 100)
+    if splits[0].downcase == 'fuck'
+     @bot.network.send_privmsg(channel, "See you in bed then, #{name}")
+     return
+    end
+    # should be: Rubybot: fuck [name]
+    if splits[1].downcase != 'fuck'
+        @bot.network.send_privmsg(channel, "Lol idk wtf you're trying to say :D")
+        return
+    end
+    fucker = splits[2]
+    if fucker.downcase == 'me'
+        fucker = name
+    end
+    @bot.network.send_privmsg(channel, "=====-- MothaFucka Alert --=====")
+    @bot.network.send_privmsg(channel, "=    I have been alerted that #{fucker} is a real Class A Mothafucka!")
+    @bot.network.send_privmsg(channel, "= Y'all other bitches best watch out!")
   end
 
   def inter_hey(bot, name, channel, message)
