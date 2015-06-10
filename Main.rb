@@ -11,6 +11,7 @@ load 'lib/events.rb' # Lays a framework for calling events to handle bot functio
 load 'lib/plugins.rb' # Lays a framework to load plugins, which register events, which make the bot work!
 load 'lib/command_help.rb'
 
+VERSION = 5.12
 
 # Method is called by the bot's settings loader to set bot settings.
 # @param [Bot] bot
@@ -60,7 +61,7 @@ end
 
 # Main class for the IRC Bot
 class Bot
-  attr_accessor :log, :event, :version, :quit, :sets, :network, :prefix, :authed, :admins, :start_time
+  attr_accessor :log, :event, :quit, :sets, :network, :prefix, :authed, :admins, :start_time
 
   def initialize
     @authed = []
@@ -71,7 +72,6 @@ class Bot
     setup_logger
     load_settings
     @event = Events.new(self)
-    @version = 5.1
     @start_time = Time.now
     @pm = get_plugin_manager
     @pm.associate_bot(self)

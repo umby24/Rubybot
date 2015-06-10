@@ -68,7 +68,7 @@ class Default_Commands < Plugin
       name = host
     end
 
-    @bot.network.send_notice(name, 'Ruby IRC Bot version ' + @bot.version.to_s + ' by Umby24')
+    @bot.network.send_notice(name, 'Ruby IRC Bot version ' + VERSION.to_s + ' by Umby24 (Ruby: ' + RUBY_VERSION.to_s + ')')
 
     if guest
       cmd_listing = @bot.event.gcommand.keys.sort().join(', ')

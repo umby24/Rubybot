@@ -33,7 +33,7 @@ class Default_packets < Plugin
     if message[0, 1] == 1.chr # CTCP
       if message[1, message.length - 2] == 'VERSION'
         #CTCP Version
-        @bot.network.send_notice(name, 1.chr + 'VERSION Ruby IRC bot Version ' + @bot.version.to_s + ' by Umby24' + 1.chr)
+        @bot.network.send_notice(name, 1.chr + 'VERSION Ruby IRC bot Version ' + VERSION.to_s + ' by Umby24' + 1.chr)
         @bot.log.progname = 'VERSION'
         @bot.log.info('Handled CTCP Version')
         @bot.log.progname = 'CORE'
