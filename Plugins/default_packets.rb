@@ -81,7 +81,7 @@ class Default_packets < Plugin
       @bot.network.send_raw("JOIN #{z}")
     end
 
-    if !@bot.ns_pass.nil? and @bot.network.ns_pass != ''
+    if !@bot.network.ns_pass.nil? and @bot.network.ns_pass != ''
       @bot.network.send_raw("NICKSERV IDENTIFY #{@bot.network.ns_pass}")
     end
   end
