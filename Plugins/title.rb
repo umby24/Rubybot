@@ -2,12 +2,14 @@ class Title < Plugin
   def plugin_init
     @name = 'Title Plugin'
     @author = 'umby24'
-    @version = 1.1
+    @version = 1.2
 
     @bot.event.register_library('openssl')
     @bot.event.register_library('cgi')
     @bot.event.register_library('open-uri')
     @bot.event.register_message('Title', self.method(:handle_message))
+    @bot.event.register_command('blacklist', self.method(:handle_blacklist), false)
+    @bot.event.register_command('unblacklist', self.method(:handle_unblacklist), false)
   end
 
   def handle_message(name, channel, message)
@@ -62,6 +64,44 @@ class Title < Plugin
       puts "Error: #{e.message} #{url}"
       return ''
     end
+  end
+
+  def handle_blacklist(host, channel, message, args, guest)
+    content = IO.readlines('Settings/bl.txt')
+
+    if content.include?(channel) || content.include?(channel + "\n")
+      @bot.network.send_privmsg(channel, 'This channel is already blacklisted.')
+      return
+    end
+
+    content[content.length] = channel
+
+    this_file = File.new('Settings/bl.txt',"w+")
+    for i in 0..content.length - 1
+      this_file.syswrite(content[i])
+    end
+    this_file.close()
+
+    @bot.network.send_privmsg(channel, 'Blacklisted')
+  end
+
+  def handle_unblacklist(host, channel, message, args, guest)
+    content = IO.readlines('Settings/bl.txt')
+
+    if content.include?(channel) == false && content.include?(channel + "\n") == false
+      @bot.network.send_privmsg(channel, 'This channel is not blacklisted.')
+      return
+    end
+
+    content.delete(channel); content.delete(channel + "\n");
+
+    this_file = File.new('Settings/bl.txt',"w+")
+    for i in 0..content.length - 1
+      this_file.syswrite(content[i])
+    end
+    this_file.close()
+
+    @bot.network.send_privmsg(channel, 'Un-Blacklisted')
   end
 end
 

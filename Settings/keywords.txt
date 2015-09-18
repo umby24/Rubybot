@@ -7,5 +7,7 @@ hey = inter_hey
 ? = inter_question
 commands = inter_commands
 fuck = inter_fuck
+<3 = inter_love
 [post]
 <3 = inter_love
+? = inter_question

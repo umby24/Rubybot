@@ -4,7 +4,7 @@ class Everything < Plugin
 
   def plugin_init
     @author = "umby24"
-    @title = "C0nt3xt"
+    @name = "C0nt3xt"
     @version = 1.0
 
     @bot.event.register_library('openssl')
@@ -12,6 +12,11 @@ class Everything < Plugin
     @bot.event.register_library('open-uri')
     @bot.event.register_library('json')
     @bot.event.register_message('C0nt3xt', self.method(:handle_message))
+    @bot.event.register_command('google', self.method(:handle_google), true)
+  end
+
+  def is_numeric(variable)
+    variable.class.to_s == "Fixnum"
   end
 
   def handle_message(name, channel, message)
@@ -53,6 +58,45 @@ class Everything < Plugin
     end
 
     return jsonObj
+  end
+
+  def google_lookup(term, num_results)
+    begin
+      something = open('http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' + term.gsub(" ","+"))
+      content = something.read
+      something.close()
+
+      parsed = JSON.parse(content)
+    rescue Exception => e
+      @bot.log.warn("Exception during google lookup and parse: #{e.message}")
+      @bot.log.debug("Stacktrace: #{e.backtrace}")
+      return
+    end
+
+    #I want split #1 (url),#6 (title no formatting).
+    begin
+      title = parsed['responseData']['results'][num_results - 1]['titleNoFormatting']
+      url = parsed['responseData']['results'][num_results - 1]['url']
+      return "Title: #{CGI.unescape_html(title)} ( #{CGI.unescape(url)} ) "
+    rescue Exception => e
+      #err_log("error! (Google plugin)")
+      @bot.log.warn("Google plugin exception #{e.message} - #{e.backtrace}")
+    end
+  end
+
+  def handle_google(host, channel, message, args, guest)
+    result = 1
+    mmessage = ''
+
+    if is_numeric(args[1])
+      result = args[1].to_i
+      isearch = "#{args[0]} #{args[1]} "
+      mmessage = message[message.index(isearch), message.length - (message.index(isearch))]
+    else
+      mmessage = message[message.index(" ") + 1, message.length - (message.index(" ") + 1)]
+    end
+
+    @bot.network.send_privmsg(channel, google_lookup(mmessage,result))
   end
 end
 

@@ -40,6 +40,7 @@ class Plugin
     if self.respond_to?('plugin_init')
       plugin_init
     end
+    @bot.log.debug("Plugin #{@name}")
 
     @manager.register_plugin(self)
   end

@@ -22,9 +22,9 @@ class Wikipedia < Plugin
   end
 
   def do_lookup(query)
-    url = "http://en.wikipedia.org/w/api.php?action=parse&page=#{CGI.escape(query)}&format=json&prop=text&section=0"
+    url = "https://en.wikipedia.org/w/api.php?action=parse&page=#{CGI.escape(query)}&format=json&prop=text&section=0"
 
-    wSock = open(url)
+    wSock = open(url, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE)
     content = wSock.sysread(90000)
     wSock.close()
 
@@ -39,7 +39,7 @@ class Wikipedia < Plugin
     if querydata.include?("<ul class=\"redirectText\">")
       filtered = /<a(.*?)<\/a>/.match(querydata)[0]
       filtered = filtered.gsub(%r{</?[^>]+?>}, "")
-      return wikipedia_lookup(filtered)
+      return do_lookup(filtered)
     end
 
     filtered = /<p>(.*?)<\/p>/.match(querydata)[0]

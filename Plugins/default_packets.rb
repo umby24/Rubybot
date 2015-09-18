@@ -62,7 +62,7 @@ class Default_packets < Plugin
       end
 
       guest = false
-      puts @bot.admins
+
       unless @bot.admins.include?(name) and @bot.authed.include?(name)
         guest = true
       end

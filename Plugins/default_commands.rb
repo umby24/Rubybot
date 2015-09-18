@@ -4,7 +4,7 @@ class Default_Commands < Plugin
   def plugin_init
     @name = 'Default Plugins'
     @author = 'umby24'
-    @version = 1.0
+    @version = 1.1
 
     # Register the commands with the bot
     @bot.event.register_command('add', self.method(:handle_add), false)
@@ -171,12 +171,20 @@ class Default_Commands < Plugin
   end
 
   def handle_quit(host, channel, message, args, guest)
-    @bot.network.send_raw('QUIT :Quit command from #{host}')
+    @bot.network.send_raw("QUIT :Quit command from #{host}")
     @bot.log.info("Quit command from #{host}")
     @bot.quit = true
   end
 
   def handle_reload(host, channel, message, args, guest)
+    if (args[1] != nil and args[1] != '' and args[1] != ' ') and (File.exists?('Plugins/' + args[1] + '.rb'))
+      @bot.network.send_privmsg(channel, "Reloading #{args[1]}...")
+      pm = get_plugin_manager
+      pm.load_plugin('Plugins/' + args[1] + '.rb')
+      @bot.network.send_privmsg(channel, 'Done')
+      return
+    end
+
     @bot.network.send_privmsg(channel, 'Reloading...')
     @bot.reload
     @bot.network.send_privmsg(channel, 'Done.')

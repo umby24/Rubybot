@@ -147,6 +147,6 @@ class Bot
 
 end
 
-ruby_bot = Bot.new # Create the bot
-ruby_bot.run # Run the bot
-gets # Wait for input before dying.
+#ruby_bot = Bot.new # Create the bot
+#ruby_bot.run # Run the bot
+#gets # Wait for input before dying.

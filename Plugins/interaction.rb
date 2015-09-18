@@ -60,7 +60,9 @@ class Interaction < Plugin
   def interaction_do(name, channel, message)
     #Post Words: Rubybot: [Command]
     #Pre words: [command] rubybot  (I.E. hi there rubybot)
+
     splits = message.split(' ', 300)
+    splits = splits.delete_if { |f| f == ''}
 
     if (splits[splits.length - 1].downcase == @bot.network.bot_name.downcase) and $pre_words.fetch(splits[0].downcase, nil) != nil # Pre words
       begin
@@ -71,7 +73,7 @@ class Interaction < Plugin
         @bot.log.debug(e.backtrace)
         @bot.log.progname = 'CORE'
       end
-
+      return
     end
 
     if (splits[0].downcase == @bot.network.bot_name.downcase or splits[0].downcase == (@bot.network.bot_name + ':').downcase) and $pre_words.fetch(splits[1].downcase, nil) != nil
@@ -83,6 +85,7 @@ class Interaction < Plugin
         @bot.log.debug(e.backtrace)
         @bot.log.progname = 'CORE'
       end
+      return
     end
 
     if (splits[0].downcase == @bot.network.bot_name.downcase or splits[0].downcase == (@bot.network.bot_name + ':').downcase) and $post_words.fetch(splits[1].downcase, nil) != nil
