@@ -8,133 +8,104 @@ This is just a base installation, no plugins. You can find a few examples for pl
 
 ## Configuration
 
-Configuration is pretty straightforward, in the settings.txt in the root directory, you will find options for the bot's nick, ident, realname, the server and port to connect to (no SSL, sorry!), the initial channel to connect to, nickserv pass for the bot (if any), and the command prefix.
+Configuration is pretty straightforward, in the settings.ini in the settings directory, you will find options for the bot's nick, ident, realname, the server and port to connect to (no SSL, sorry!), the initial channel to connect to, nickserv pass for the bot (if any), and the command prefix.
 
-Inside the settings directory, there are two files. plugins.txt, and users.txt.
+Additionally in this file is the list of loaded plugins and authorized bot usernames. (Must be nickserv logged in)
 
-To make the bot load a plugin, put the name of the plugin file inside of plugins.txt. One file per line.
+To make the bot load a plugin, put the name of the plugin file inside of settings.ini under [Plugins] One file per line.
 
 Example:
-	core.rb
-	title.rb
-	raw.rb
-	ping.rb
-	google.rb
+	core.rb = nothing
+	title.rb = nothing
+	raw.rb = nothing
+	ping.rb = nothing
+	google.rb = nothing
 
-users.txt is the file for the bot's admins. Again, one nick per line.
+When using commands, the bot will check to see if the user is in the autheorized users list. If so, it will check to ensure the are logged in to Nickserv. If either of these conditions fails, the user will be limited to the "Guest" commands.
 
-When using commands, the bot will check to see if the user is in this list. If so, it will check to ensure the are logged in to Nickserv. If either of these conditions fails, the user will be limited to the "Guest" commands.
-
-In core.rb (in the plugins directory), the Eval command is limited to a hard-coded user to prevent abuse. You must go and search for "command_eval" in this file, and change it to your nick if you wish to use this command. (Same rules for commands above still apply).
+In default_commands.rb (in the plugins directory), the Eval command is limited to a hard-coded user to prevent abuse. You must go and search for "handle_eval" in this file, and change it to your nick if you wish to use this command. (Same rules for commands above still apply).
 
 ## Included commands
 
 	add [name] - Adds [name] to list of allowed bot admins.
-	admin [name] - Gives [name] channel admin (if possible).
 	admins - Lists bot admins.
-	bold [text] - Sends [text] in bold.
-	channel [channel] - Makes the bot join [channel].
+	blacklist - Blocks the current channel from displaying url titles
+	channels - Makes the bot join [channel].
 	commands - Lists all available commands to the user.
 	eval [string] - Makes the bot run the ruby script [string].
+	google [query] - Searches google for [query] and returns the first result.
 	help [command] - Lists help for [command] (If available).
-	kick [name] - Kicks [name] from the channel (if possible).
+	join [channel] - Makes the bot join [channel]
 	load [file] - Loads [file] from the plugins directory, and adds it to plugins.txt.
-	me [text] - Sends [text] in a /me fasion.
 	nick [nickname] - changes the bots nickname.
-	now - Gives the system time, date, and timezone.
-	nping - Returns the bot's current network latency.
-	op [name] - Gives [name] Channel Op (if possible).
-	owner [name] - Gives [name] channel owner (if possible).
 	part - Makes the bot part from the current channel.
+	ping - The bot says "Pong" to show you how fast it can react.
 	plugins - Lists the bot's loaded plugins.
 	quit - Quits the bot.
-	radmin [name] - Removes Channel Admin from [name].
 	reload [file] - Reloads all plugins, settings, and admins. If [file] is specified, only that plugin will be reloaded.
 	rem [name] - Removes [name] from bot allowed admins.
-	rop [name] - Removes Channel Op from [name].
-	rowner [name] - Removes channel Owner from [name].
-	rvoice [name] - Removes voice from [name].
 	say [text] - Makes the bot say [text].
 	time - Makes the bot give the current time in AM/PM format.
 	topic - Gives the topic of the current channel.
-	unload [file] -- Removes [file] from plugins.txt and unloads the plugin.
-	voice [name] - Gives voice to [name] (if possible).
+	unblacklist - Unblocks the current channel from url titles.
+	uptime - (Inaccurate) shows the bot's uptime
+	utc [offset] - Shows the current time at the given utc offset. 
+	wiki [query] - Searches wikipedia for the given query, and returns the first paragraph.
 
 ## Plugin API
+Plugins must be written in their own class, which must inherit the Plugin superclass. The only required method for you to implement is 'plugin_init'. This method will be called when your plugin is loaded, and at a minimum you should set three instance variables, @name, @author, and @version.
 
-First part of the plugin API is of course making your code, you can make classes or methods of pretty much any name, just make sure they are unique so they don't interfere with other plugins.
-If two plugins have a method with the same name, the one that is loaded last will overwrite the method of the earlier loaded plugin.
+After this what you decided to plugin with the bot is up to you.
 
-If your plugin requires any external libraries, at the top of the file register those with the bot and they will be loaded.
+Methods in your plugin class will be called based on various events that occur that you must subscribe to.
 
-Other than that, there are a number of events you can register within your plugin to allow functionality to be added to the bot by your plugin.
+The events are:
+    message - Event triggers when a message is received in any connected channel.
+    read - Event triggers after a packet has been read off the wire.
+    command - Event triggers when a command is called.
+    join - Event triggers when a user joins a channel you are connected to.
+    packet - Event triggers when a packet is received and is ready for parsing.
 
-	regMsg(name, method) -- Every time a chat message (PRIVMSG) is received, the bot will run [method]. [name] is just an identifier.
-	regCmd(cmd, method) -- Registers [cmd] as an admin command. When the command is run, the bot will call [method]. Command is added to command listing.
-	regGCmd(cmd, method) -- Registers [cmd] as a guest command. When the command is run, the bot will call [method]. Command is added to command listing.
-	regLib(library) -- Calls the bot to load [library].
-	regCon(name, method) -- once connected to an irc server fully (MOTD received), the bot will call [method]. [name] is just an identifier.
-	regRead(name, method) -- calls [method] every time data is read off the socket. [name] is an identifier.
-	regJoin(name, method) -- Calls [method] whenever a user joins IRC.
+To register a method to be called on one of these events, call: 
+    @bot.event.register_[event](name, self.method(:method_name)) 
 
-### Methods
-These are methods included by the bot, what they do, and what arguments they require. They may be used by any plugin.
+Method signatures of each event:
+    message - (name, channel, message)
+    read - (fullpacket)
+    command - (host, channel, message, args, guest)
+    join - (channel)
+    packet - (prefix, command, args, raw)
 
-	logtext(text, channel) -- adds [text] to the end of the log file for [channel]. If a log does not exist for that channel, one will be created. [Deprecated]
-	err_log(message) -- Adds [message] to the end of the error.log file found in the root directory of the bot. [Deprecated]
-	_log(type, plugin, function, message, channel=nil) -- Plugin, Function, and channel are optional. For plugin and function to be ignored, use "". Logs to the console and to file.
-	send_raw(data) -- sends the raw [data] to the server. (IRC line terminator is automatically added to [data]).
-	pm(message, user) -- sends PRIVMSG [message] to [user]. [user] can be a user or a channel.
-	sendmessage(message) -- Sends [message] to the currently active channel. ($current).
-	send_notice(user, message) -- Sends a notice to [user], with the content of [message].
-	load_settings() -- Loads the bot's settings
-	load_users() -- Loads the bot's admins.
-	load_plugins() -- Loads the bot's plugins.
+*Note:* When registering a command, you must specify if the command is accessible by non-authorized users or not. (True: guests can use, False: guests cannot.)
+    @bot.event.register_command(name, self.method(:method_name), true)
 
-### Global Variables
+### Useful things within plugins
+Plugins get provided the @bot variable, which allows you access to several things. 
 
-These are the variables that are used throughout the bot, that you can use or manipulate from your plugins. You may also create your own global variables and they will persist and be readable by other plugins.
+- Logging
 
-The first section contains fully global variables, second section is only after a message has been received from IRC, and the third group is after a command has been triggered.
+The first useful item to you is logging.
+    @bot.log.info("Hello from my plugin!")
 
-	Variable (Type)        | Use                                                                                         
+Supported log levels are info, debug, warn, error, fatal, unknown.
+All log levels will be logged to disk by default, and only informational, error, and fatal will log to console.
 
-	$access (Array)        | Holds the names of bot admins.
-	$plugins (Array)       | Holds the filenames of loaded plugins.
-	$quit (Int)            | Determines if the bot is quitting. If set to 1, the bot will exit.
-	$players (Hash)        | Key is channel name, value is an array holding the names of each player in that channel.
-	$topic (Hash)          | Key is channel name, value is a string holding the topic for that channel.
-	$botname (string)      | Holds the current nick for the bot.
-	$realname (string)     | Holds the current real name for the bot.
-	$nspass (string)       | Holds the Nickserv password for the bot.
-	$ident (string)        | Holds the Ident name for the bot.
-	$serverip (string)     | Holds the IP of the current IRC server.
-	$serverport (int)      | Holds the port of the current IRC server.
-	$serverchannel (Array) | Holds a list of all channels the bot is connected to.
-	$current (string)      | Holds the name of the currently selected channel (where chat messages will go to by default).
-	$authed (Array)        | Holds the names of all who are authed with Nickserv.
-	$prefix (string)       | Holds the current command prefix for the bot.
-	$id (bool)             | True if the bot is authed with Nickserv.
-	$t1 (Thread)           | Thread that handles incoming data from IRC server.
-	$t2 (Thread)           | Thread that handles console input.
-	$t3 (Thread)           | Thread that handles auto-reconnection if no ping is received from the irc server after 8 minutes.
-	$socket (TCPSocket)    | The socket that is connected to the irc server.
-	$help (Array)          | Holds all help modules for all commands on the bot.
+ - Network
+ (Each command here should be prefaced in your plugins with @bot.network.)
 
-	$raw (String)    | Contains the raw data pulled from the IRC server.
-	$host(String)    | Contains the hostname for the incoming data (All data up to the first space from $raw).
-	$name (String)   | Contains the name of the sender of a message (If applicable)
-	$dat (String)    | Contains all data after the first space from $raw.
-	$second (String) | Contains the IRC code for this message (PRIVMSG, NOTICE, TOPIC, 330, ect.)
-	$splits (Array)  | Contains $dat split by spaces, up to 10 times.
-	$message (String)| Contains the message for this string. (All data after the ':' in $dat).
+ 	send_raw(data) - Sends a raw packet to the irc server, \r\n is added for you.
+ 	send_privmsg(dest, message) - Sends a privmsg to dest, with the message provided.
+ 	send_notice(dest, message) - Sends a NOTICE to the given location, with the given message.
+ 	send_all(message) - Sends a PRIVMSG to all connected channels with the given message.
 
-	$cmd (String) | The command that is being called.
-	$args (Array) | A list of string that contains the chat message used to trigger the command, split by spaces. (Includes the command itself as $args[0]).
+ Example:
+     @bot.network.send_notice("user1", "Hello from rubybot!")
 
 
 ### That's it!
 
-That's all of the variables and methods available to rubybot plugins. If you need more and feel comfortable with it, feel free to dive into the core bot files and add your own!
+If you need more and feel comfortable with it, feel free to dive into the core bot files and add your own!
 If you think it will be useful to others as well, make a pull request!
+
+There are a few more things you can dig into such as your plugins using the provided settings.ini file for storing settings, adding command help and so on, but there are examples of this in the code bas already.
 
