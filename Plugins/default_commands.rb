@@ -99,7 +99,7 @@ class Default_Commands < Plugin
   end
 
   def handle_help(host, channel, message, args, guest)
-    if args[1].nil?
+    if args[1].nil? or args[1] == ''
       @bot.network.send_notice(host[0, host.index('!')], "No arguments provided. For a commands listing see #{@bot.prefix}commands")
       return
     end
@@ -111,7 +111,7 @@ class Default_Commands < Plugin
       return
     end
 
-    if args[2].nil?
+    if args[2].nil? or args[2] == ''
       hm.send_base_help(host[0, host.index('!')])
       return
     end
@@ -119,15 +119,15 @@ class Default_Commands < Plugin
     if args[2].downcase == 'arg'
       index = message.index(args[2]) + args[2].length + 1
       mmessage = message[index, message.length - index]
-      hm.send_arg_help(host[0, host.index('!')], mmessage)
-    elsif args[3].nil?
-      hm.send_sub_help(host[0, host.index('!')], args[2])
-    elsif args[3] == 'arg' and !args[4].nil?
+      hm.send_arg_help(host[0, host.index('!')], mmessage.strip)
+    elsif args[3].nil? or args[3] == ''
+      hm.send_sub_help(host[0, host.index('!')], args[2].strip)
+    elsif args[3] == 'arg' and !(args[4].nil? or args[4] == '')
       index = message.index(args[3]) + args[3].length + 1
       mmessage = message[index, message.length - index]
-      hm.send_sub_arg_help(host[0, host.index('!')], args[2], mmessage)
+      hm.send_sub_arg_help(host[0, host.index('!')], args[2], mmessage.strip)
     else
-      @bot.network.send_notice(host[0, host.index('!')], 'There was ab error with your help request.')
+      @bot.network.send_notice(host[0, host.index('!')], 'There was an error with your help request.')
       @bot.network.send_notice(host[0, host.index('!')], "Usage is #{@bot.prefix}help [command] [subcommand or 'arg'](optional) [argument or 'arg'](optional) [argument](optional)")
     end
   end

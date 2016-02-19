@@ -141,9 +141,9 @@ class Help
 
       return
     end
-
+    
     if @arguments['args'].include?(arg) == false and @subcommands[arg] == nil
-      @bot.network.send_notice(sender, 'Argument not found.')
+      @bot.network.send_notice(sender, 'Argument not found.') 
       return
     end
 

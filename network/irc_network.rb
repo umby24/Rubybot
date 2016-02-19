@@ -67,6 +67,7 @@ class IRC_Network
     until @bot.quit
       raw = read_line
       @bot.event.call_read(raw)
+      @timer = 0
       prefix = ''
 
       #[prefix (optional)] [command] [arguments]
@@ -81,7 +82,6 @@ class IRC_Network
       end
 
       if command == 'PING' # Respond to IRC Server pings for aliveness.
-        @timer = 0
         send_raw("PONG #{args[0]}")
         next
       end
@@ -102,14 +102,14 @@ class IRC_Network
       @timer += 1
 
       begin
-        if @timer > 500
+        if @timer > 1000
           @bot.quit = 1
 
           unless @socket.closed?
             @socket.close
           end
 
-          system('ruby main.rb')
+          system('ruby Main.rb')
           puts 'Recovered.'
         end
       rescue Exception => e
