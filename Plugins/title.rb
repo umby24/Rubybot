@@ -10,6 +10,17 @@ class Title < Plugin
     @bot.event.register_message('Title', self.method(:handle_message))
     @bot.event.register_command('blacklist', self.method(:handle_blacklist), false)
     @bot.event.register_command('unblacklist', self.method(:handle_unblacklist), false)
+    help_init
+  end
+
+  def help_init
+    hm = Help.new(@bot, 'blacklist')
+    hm.add_description('Disables url title displays in the current channel.')
+    @bot.event.help['blacklist'] = hm
+
+    hm = Help.new(@bot, 'whitelist')
+    hm.add_description('Enables url title displays in the current channel.')
+    @bot.event.help['whitelist'] = hm
   end
 
   def handle_message(name, channel, message)

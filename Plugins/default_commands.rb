@@ -30,11 +30,50 @@ class Default_Commands < Plugin
   end
 
   def register_help
+    hm = Help.new(@bot, 'add')
+    hm.add_description('Adds a bot admin user')
+    hm.add_argument('username', 'Username of the user to be an admin')
+    @bot.event.help['add'] = hm
+
+    hm = Help.new(@bot, 'admins')
+    hm.add_description('Lists the admin users of this bot.')
+    @bot.event.help['admins'] = hm
+
+    hm = Help.new(@bot, 'channels')
+    hm.add_description('Lists the channels this bot is joined to.')
+    @bot.event.help['channels'] = hm
+
+    hm = Help.new(@bot, 'commands')
+    hm.add_description('Lists the commands recognized by this bot')
+    @bot.event.help['commands'] = hm
+
+    hm = Help.new(@bot, 'eval')
+    hm.add_description('Evaluates a ruby command')
+    hm.add_argument('command', 'The command to evaluate')
+    @bot.event.help['eval'] = hm
+
+    hm = Help.new(@bot, 'help')
+    hm.add_description('Displays usage information for various bot commands.')
+    hm.add_argument('command', 'The command to receive help for')
+    hm.add_argument("'arg' or subcommand", 'The subcommand to receive help for, or the keyword arg', true)
+    hm.add_argument('argument', 'When paired with arg keyword, the argument to receive specific detail about.', true)
+    @bot.event.help['help'] = hm
+
     hm = Help.new(@bot, 'join')
     hm.add_description('Makes the bot join [channel]')
     hm.add_argument('channel', 'The channel for the bot to join')
     @bot.event.help['join'] = hm
 
+    hm = Help.new(@bot, 'load')
+    hm.add_description('Loads a ruby plugin')
+    hm.add_argument('plugin', 'The plugin to load, ex. title.rb')
+    @bot.event.help['load'] = hm
+
+    hm = Help.new(@bot, 'nick')
+    hm.add_description("Change the bot's IRC nickname.")
+    hm.add_argument('nick', 'The nickname to use for the bot.')
+    @bot.event.help['nick'] = hm
+    
     hm = Help.new(@bot, 'say')
     hm.add_description('Makes the bot say [text]')
     hm.add_argument('text', 'The text the bot will echo.')

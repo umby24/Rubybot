@@ -15,6 +15,14 @@ class Everything < Plugin
     @bot.event.register_command('google', self.method(:handle_google), true)
   end
 
+  def register_help
+    hm = Help.new(@bot, 'google')
+    hm.add_description('Returns the title and url of the first found google result')
+    hm.add_argument('query', 'The search query to lookup on google.')
+    @bot.event.help['google'] = hm
+    
+  end
+
   def is_numeric(variable)
     variable.class.to_s == "Fixnum"
   end
