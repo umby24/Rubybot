@@ -60,46 +60,48 @@ After this what you decided to plugin with the bot is up to you.
 Methods in your plugin class will be called based on various events that occur that you must subscribe to.
 
 The events are:
-    message - Event triggers when a message is received in any connected channel.
-    read - Event triggers after a packet has been read off the wire.
-    command - Event triggers when a command is called.
-    join - Event triggers when a user joins a channel you are connected to.
-    packet - Event triggers when a packet is received and is ready for parsing.
+	message - Event triggers when a message is received in any connected channel.
+	read - Event triggers after a packet has been read off the wire.
+	command - Event triggers when a command is called.
+	join - Event triggers when a user joins a channel you are connected to.
+	packet - Event triggers when a packet is received and is ready for parsing.
 
 To register a method to be called on one of these events, call: 
-    @bot.event.register_[event](name, self.method(:method_name)) 
+	@bot.event.register_[event](name, self.method(:method_name)) 
 
 Method signatures of each event:
-    message - (name, channel, message)
-    read - (fullpacket)
-    command - (host, channel, message, args, guest)
-    join - (channel)
-    packet - (prefix, command, args, raw)
+	message - (name, channel, message)
+	read - (fullpacket)
+	command - (host, channel, message, args, guest)
+	join - (channel)
+	packet - (prefix, command, args, raw)
+
 
 *Note:* When registering a command, you must specify if the command is accessible by non-authorized users or not. (True: guests can use, False: guests cannot.)
-    @bot.event.register_command(name, self.method(:method_name), true)
+	@bot.event.register_command(name, self.method(:method_name), true)
+
 
 ### Useful things within plugins
 Plugins get provided the @bot variable, which allows you access to several things. 
 
-- Logging
+### Logging
 
 The first useful item to you is logging.
-    @bot.log.info("Hello from my plugin!")
+	@bot.log.info("Hello from my plugin!")
 
 Supported log levels are info, debug, warn, error, fatal, unknown.
 All log levels will be logged to disk by default, and only informational, error, and fatal will log to console.
 
- - Network
+### Network
  (Each command here should be prefaced in your plugins with @bot.network.)
 
- 	send_raw(data) - Sends a raw packet to the irc server, \r\n is added for you.
- 	send_privmsg(dest, message) - Sends a privmsg to dest, with the message provided.
- 	send_notice(dest, message) - Sends a NOTICE to the given location, with the given message.
- 	send_all(message) - Sends a PRIVMSG to all connected channels with the given message.
+	send_raw(data) - Sends a raw packet to the irc server, \r\n is added for you.
+	send_privmsg(dest, message) - Sends a privmsg to dest, with the message provided.
+	send_notice(dest, message) - Sends a NOTICE to the given location, with the given message.
+	send_all(message) - Sends a PRIVMSG to all connected channels with the given message.
 
  Example:
-     @bot.network.send_notice("user1", "Hello from rubybot!")
+	@bot.network.send_notice("user1", "Hello from rubybot!")
 
 
 ### That's it!
