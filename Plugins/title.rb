@@ -60,7 +60,9 @@ class Title < Plugin
 
       if !content2.include?("<title>")
         return ''
-      else
+      end
+
+     
         place1 = content2.index('<title>')
         place2 = content2.index('</title>')
         length = place2 - place1
@@ -69,8 +71,8 @@ class Title < Plugin
         title = content[place1,length]
         title = CGI.unescape_html(title).strip().gsub("\r",'').gsub("\n",'')
         title = title.gsub(/\s+/, ' ')
-	return "[Title: #{title}]"
-      end
+        return "[Title: #{title}]"
+      
     rescue Exception => e
       puts "Error: #{e.message} #{url}"
       return ''
@@ -78,7 +80,11 @@ class Title < Plugin
   end
 
   def handle_blacklist(host, channel, message, args, guest)
-    content = IO.readlines('Settings/bl.txt')
+    if File.exist?('Settings/bl.txt')
+        content = IO.readlines('Settings/bl.txt')
+    else
+        content = ""
+    end
 
     if content.include?(channel) || content.include?(channel + "\n")
       @bot.network.send_privmsg(channel, 'This channel is already blacklisted.')
@@ -97,7 +103,11 @@ class Title < Plugin
   end
 
   def handle_unblacklist(host, channel, message, args, guest)
-    content = IO.readlines('Settings/bl.txt')
+    if File.exist?('Settings/bl.txt')
+        content = IO.readlines('Settings/bl.txt')
+    else
+        content = ""
+    end
 
     if content.include?(channel) == false && content.include?(channel + "\n") == false
       @bot.network.send_privmsg(channel, 'This channel is not blacklisted.')
