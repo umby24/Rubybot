@@ -1,6 +1,8 @@
 class Everything < Plugin
   Url = 'https://www.googleapis.com/youtube/v3/videos'
   ApiKey = 'GOOGLE API KEY'
+  SearchUrl = 'https://www.googleapis.com/customsearch/v1'
+  SearchId = 'YOUR_SEARCH_ID'
 
   def plugin_init
     @author = "umby24"
@@ -70,7 +72,7 @@ class Everything < Plugin
 
   def google_lookup(term, num_results)
     begin
-      something = open('http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' + term.gsub(" ","+"))
+      something = open(SearchUrl + "?&q=" + term.gsub(" ","+") + "&key=#{ApiKey}&cx=#{SearchId}")
       content = something.read
       something.close()
 
@@ -83,12 +85,13 @@ class Everything < Plugin
 
     #I want split #1 (url),#6 (title no formatting).
     begin
-      title = parsed['responseData']['results'][num_results - 1]['titleNoFormatting']
-      url = parsed['responseData']['results'][num_results - 1]['url']
+      title = parsed['items'][num_results - 1]['title']
+      url = parsed['items'][num_results - 1]['link']
       return "Title: #{CGI.unescape_html(title)} ( #{CGI.unescape(url)} ) "
     rescue Exception => e
       #err_log("error! (Google plugin)")
       @bot.log.warn("Google plugin exception #{e.message} - #{e.backtrace}")
+      return "Error occured"
     end
   end
 
