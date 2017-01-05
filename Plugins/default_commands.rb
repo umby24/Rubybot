@@ -7,6 +7,7 @@ class Default_Commands < Plugin
     @version = 1.1
 
     # Register the commands with the bot
+    @bot.event.register_command('auth', self.method(:handle_auth), true)
     @bot.event.register_command('add', self.method(:handle_add), false)
     @bot.event.register_command('admins', self.method(:handle_admins), false)
     @bot.event.register_command('channels', self.method(:handle_channels), true)
@@ -81,6 +82,11 @@ class Default_Commands < Plugin
 
     #hm = Help.new(@bot, 'reload')
     #hm.add_description
+  end
+
+  def handle_auth(host, channel, message, args, guest)
+    @bot.network.send_raw("WHOIS #{host[0, host.index('!')]}")
+    @bot.network.send_notice(host[0, host.index('!')], "Sent an auth reqeust...")
   end
 
   def handle_add(host, channel, message, args, guest)
